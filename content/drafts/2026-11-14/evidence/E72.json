@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E72",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP now exposes product-by-product, customer-specific cloud software carbon footprints to customers.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "SAP calculates daily server electrical consumption using CPU, memory and data-center PUE and allocates it to products and tenants.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "The PCF methodology is aligned to the GHG Protocol ICT Sector Guidance and the full methodology is public.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "Product-level emissions data is available now in SAP for Me for a growing list of cloud products.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "SAP plans to expand product coverage, pursue ISO 14067 alignment and add AI workload profiling in coming quarters.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "quote": "SAP is making the carbon footprint of cloud software visible product by product, customer by customer.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "retrieved_at": "2026-11-14T09:48:51+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "quote": "Every day, SAP calculates the electrical consumption of each physical and virtual server running its cloud products, based on CPU utilization, memory allocation, and the power usage effectiveness (PUE) of each data center.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "retrieved_at": "2026-11-14T09:48:51+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "quote": "The methodology is aligned to the GHG Protocol ICT Sector Guidance.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "retrieved_at": "2026-11-14T09:48:51+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "quote": "SAP’s cloud product carbon footprint is accessible now through the Finance & Legal section of SAP for Me for a growing list of cloud products",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "retrieved_at": "2026-11-14T09:48:51+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "quote": "In the coming quarters, SAP plans to expand product coverage across its cloud portfolio.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+      "retrieved_at": "2026-11-14T09:48:51+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 5 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

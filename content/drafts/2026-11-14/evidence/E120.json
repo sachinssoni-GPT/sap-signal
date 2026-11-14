@@ -1,0 +1,110 @@
+{
+  "candidate_id": "E120",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP positions ABAP platform as the enterprise-grade execution backbone for agentic AI.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "SAP released the ABAP MCP server in the second quarter to enable MCP-compatible agents to interact with ABAP.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "SAP is building seven agent families to cover migration steps and ABAP AI features are available on earlier releases.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "SAP plans to ship additional migration tools by year-end and is prioritizing migration, sovereign cloud, and MCP tooling.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "quote": "ABAP platform is becoming an enterprise-grade execution backbone for agentic AI.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "retrieved_at": "2026-11-14T09:49:09+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "quote": "We released the ABAP MCP server in the second quarter.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "retrieved_at": "2026-11-14T09:49:09+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "quote": "ABAP AI capabilities are now available in earlier versions as well.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "retrieved_at": "2026-11-14T09:49:09+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "quote": "By year-end, we plan to ship additional practical tools to help support the entire migration process.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+      "retrieved_at": "2026-11-14T09:49:09+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 4 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

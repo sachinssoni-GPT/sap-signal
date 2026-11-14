@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E3",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP’s November 2026 Security Patch Day disclosed four maximum-severity flaws, some requiring no authentication.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "Two 10.0‑CVSS flaws (ICM/Web Dispatcher) named ICM2SHELL allow unauthenticated memory corruption and remote code execution.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "A maximum‑severity Gateway flaw (PROXYGATE) can let outside attackers be treated as internal application servers due to default ACLs.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "A SAML2 service‑provider flaw allows forged identity confirmations, enabling unauthenticated attackers to impersonate any user.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "Remediation workload is large: numerous Security Notes, GitHub advisories and manual steps are required.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "SAP’s November 2026 Security Patch Day put its most serious flaws in the infrastructure that connects systems, processes requests, and authenticates users. Attackers need no credentials to reach the most severe of them.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "Two flaws rated 10.0, the maximum on the Common Vulnerability Scoring System (CVSS), affect the Internet Communication Manager (ICM) in SAP NetWeaver AS ABAP and SAP Web Dispatcher (CVE-2026-76964 and CVE-2026-89126).",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "Its default access control list can treat an outside attacker with network access as an internal application server, which opens sensitive SAP functions to that attacker.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "An unauthenticated attacker could forge one, impersonate any user, including privileged accounts, and gain complete control of the system.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "SAP’s bulletin lists 35 new Security Notes, four GitHub advisories, and three updates, and nine of the new notes address critical vulnerabilities.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at erp.today; 5 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

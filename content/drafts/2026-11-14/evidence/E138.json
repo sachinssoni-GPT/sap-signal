@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E138",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP sets end of mainstream maintenance and an optional extended-maintenance window (with premium) for Business Suite 7",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "Choice of conversion (greenfield/brownfield/selective) determines which historical data remains in ECC or moves",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "Cleared and open AR/AP items live in different ECC tables; clearing links are required to show which payment matched which invoice",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "ECC stores posted amounts in document currency and company-code local currency (and often parallel currencies) which must be preserved",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "Custom (Z) reports hold logic auditors rely on and should be extracted with the data",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "quote": "Mainstream maintenance for the core applications of SAP Business Suite 7 ends at the close of 2027, and optional extended maintenance runs to the end of 2030 at a premium of two percentage points on the maintenance basis.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "retrieved_at": "2026-11-14T09:49:10+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "quote": "A greenfield implementation starts the new system with balances, open items, and active master data, and the closed years stay behind in ECC.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "retrieved_at": "2026-11-14T09:49:10+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "quote": "Open receivables and payables sit in BSID and BSIK, and once an item is cleared it moves to BSAD or BSAK.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "retrieved_at": "2026-11-14T09:49:10+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "quote": "Every ECC posting stores its amounts in the document currency and in the company code’s local currency, and many groups carry further parallel currencies.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "retrieved_at": "2026-11-14T09:49:10+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "quote": "In the same retirement, three customer-specific reports covering the journal, vendors, and customers were extracted alongside the standard tables.",
+      "origin": "erp.today",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "retrieved_at": "2026-11-14T09:49:10+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at erp.today; 5 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

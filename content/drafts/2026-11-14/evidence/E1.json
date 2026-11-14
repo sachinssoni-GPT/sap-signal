@@ -1,0 +1,110 @@
+{
+  "candidate_id": "E1",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP and VF Corporation opened S.Fashion, a retail innovation space at SAP headquarters in Walldorf to explore AI-enabled, end-to-end retail processes.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "The store connects item-level RFID, robotics and SAP applications across inventory, orders, pricing, promotions and replenishment.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "During selected hours the store operates autonomously with no staff on site to test AI-driven retail models.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "Joule (part of SAP Business AI Platform) guides customers through discovery, in-store navigation and checkout and supports personalization features.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "quote": "today opened S.Fashion, a retail innovation space at the SAP headquarters in Walldorf designed to explore",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "retrieved_at": "2026-11-14T09:48:57+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "quote": "item-level RFID data, robotics and SAP applications support a connected flow across inventory, orders, pricing, promotions and replenishment.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "retrieved_at": "2026-11-14T09:48:57+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "quote": "During selected hours, the store operates autonomously, with no staff on site.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "retrieved_at": "2026-11-14T09:48:57+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "quote": "Joule, part of SAP Business AI Platform, guides consumers from store entry and product discovery to in-store navigation and checkout.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+      "retrieved_at": "2026-11-14T09:48:57+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 4 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

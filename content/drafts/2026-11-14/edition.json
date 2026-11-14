@@ -1,0 +1,286 @@
+{
+  "edition_date": "2026-11-14",
+  "edition_id": "2026-11-14",
+  "issue_no": 1,
+  "run_id": "20261114-094807",
+  "title": "Mapping November's SAP maximum‑severity flaws",
+  "description": "How to find which systems, interfaces, custom code and contracts are exposed, what to patch first, and two immediate checks for Monday.",
+  "lead_id": "E3",
+  "stories": [
+    {
+      "rank": 1,
+      "candidate_id": "E3",
+      "headline": "SAP issues four maximum‑severity, unauthenticated flaws in November patch",
+      "summary": "The November 2026 Security Patch Day disclosed four maximum‑severity flaws, including two 10.0 CVSS bugs in ICM/Web Dispatcher (ICM2SHELL) and a Gateway PROXYGATE issue that can treat external actors as internal servers. A SAML2 service‑provider weakness can let unauthenticated attackers impersonate any user, and SAP’s bulletin lists dozens of notes and advisories to apply and verify.",
+      "why_it_matters": "Shared connectivity components mean many landscapes can be exposed at once and remediation will require coordinated patching, configuration changes and follow‑up testing—raising operational risk and near‑term maintenance cost.",
+      "confidence": "high",
+      "score": 93.0,
+      "sources": [
+        {
+          "origin": "ERP Today",
+          "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+          "tier": "trade_press",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "clean_core",
+      "vendor_only": false,
+      "also_reported": [
+        {
+          "origin": "gbhackers.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "pasqualepillitteri.it",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "rescana.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "candidate_id": "E160",
+      "headline": "AstraZeneca migrates to SAP Cloud ERP Private via RISE; adopts SAP Business AI",
+      "summary": "AstraZeneca is migrating its full SAP estate to SAP Cloud ERP Private through the RISE with SAP journey, expanding a 20-year relationship with SAP. The company’s Axial programme will move it from SAP ERP Central Component to Cloud ERP Private while exploring SAP’s Industry AI portfolio, the Joule solution and agentic AI use cases across finance, supply chain and manufacturing.",
+      "why_it_matters": "Expect a large transformation budget and multi-year cloud programme to harmonize data and enable AI pilots; plan for substantial migration, governance and data-cleaning work to realize AI and sustainability integrations.",
+      "confidence": "developing",
+      "score": 85.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecc_exit",
+      "vendor_only": false,
+      "also_reported": []
+    },
+    {
+      "rank": 3,
+      "candidate_id": "E72",
+      "headline": "SAP publishes product-level cloud emissions and energy data to customers",
+      "summary": "SAP now provides product-level, customer-specific cloud emissions and energy data, making footprint data visible product by product. The approach uses a daily, bottom-up energy model that allocates server electricity (CPU, memory, PUE) to products and tenants, and the methodology is aligned to the GHG Protocol ICT guidance and published for customers.",
+      "why_it_matters": "SAP-level, activity-based emissions per product gives architects actionable hotspots to target (infrastructure efficiency, deployment choices, workload optimization) and may shift reporting and investment from portfolio-level estimates to product-specific reduction projects, impacting cloud spend allocation and sustainability roadmaps.",
+      "confidence": "developing",
+      "score": 60.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/sap-product-level-cloud-emissions-energy-data-customers/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "data_ai",
+      "vendor_only": false,
+      "also_reported": []
+    },
+    {
+      "rank": 4,
+      "candidate_id": "E138",
+      "headline": "SAP Business Suite 7: ECC maintenance ends; plan history retention",
+      "summary": "SAP sets mainstream maintenance for SAP Business Suite 7 to end at the close of 2027, with optional extended maintenance to the end of 2030 at \"a premium of two percentage points on the maintenance basis\". The migration approach determines which closed years stay in ECC or move to the target system; ensure cleared-item links, stored currency amounts, and custom Z‑reports are captured so audit trails remain readable.",
+      "why_it_matters": "You must budget and assign an owner now for retaining and reconciling retained ECC history (cleared items, stored currency amounts, Z‑reports) or risk audit, tax and dispute costs later.",
+      "confidence": "developing",
+      "score": 60.0,
+      "sources": [
+        {
+          "origin": "ERP Today",
+          "url": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+          "tier": "trade_press",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecc_exit",
+      "vendor_only": false,
+      "also_reported": []
+    },
+    {
+      "rank": 5,
+      "candidate_id": "E120",
+      "headline": "SAP makes ABAP platform backbone for agentic AI",
+      "summary": "ABAP is being positioned as the enterprise execution backbone for agentic AI, able to run governed, reliable agents inside business processes, Sonja Liénard said. SAP released the ABAP MCP server in the second quarter to open ABAP to MCP-compatible agents, is building seven migration agent families and supporting earlier releases with ABAP AI capabilities, and plans more migration tools by year-end.",
+      "why_it_matters": "Expect work to shift from manual form-driven processes to agent-led automation that requires investment in ABAP platform guardrails, MCP interfaces, testing capacity and potential compute/storage upgrades during migrations.",
+      "confidence": "developing",
+      "score": 55.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/abap-platform-becoming-enterprise-grade-execution-backbone-agentic-ai/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "clean_core",
+      "vendor_only": false,
+      "also_reported": []
+    },
+    {
+      "rank": 6,
+      "candidate_id": "E1",
+      "headline": "SAP and VF open S.Fashion intelligent retail test store",
+      "summary": "SAP and VF Corporation opened S.Fashion, a retail innovation space at SAP’s Walldorf headquarters to test AI-enabled, end-to-end retail processes. The store links item-level RFID, robotics and SAP applications across inventory, orders and replenishment, operates autonomously during selected hours with no staff on site, and uses Joule to guide personalization and checkout.",
+      "why_it_matters": "Expect near-term costs for RFID, robotics and integration proofs-of-concept and potential follow-on spend on BTP/AI agent integration if pilots validate lower operating complexity and labor displacement.",
+      "confidence": "high",
+      "score": 53.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/sap-and-vf-corporation-open-intelligent-fashion-store/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecosystem",
+      "vendor_only": false,
+      "also_reported": [
+        {
+          "origin": "tradingview.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "PR Newswire",
+          "url": "",
+          "tier": "vendor",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "unite.ai",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "Investing.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ]
+    }
+  ],
+  "take": {
+    "format": "landscape_impact",
+    "title": "Mapping November's SAP maximum‑severity flaws",
+    "dek": "How to find which systems, interfaces, custom code and contracts are exposed, what to patch first, and two immediate checks for Monday.",
+    "sections": [
+      {
+        "heading": "A Monday status meeting that suddenly matters",
+        "body": "You’re on a routine programme call — release windows, downstream test schedules, the usual snag list — until security flags a bulletin. Operations and integration start naming components: Web Dispatcher, ICM, Gateway. The calendar fills with emergency slots.\n\nFact: SAP published four critical vulnerabilities this November affecting ICM, Web Dispatcher and Gateway; two ICM/Web Dispatcher flaws carry a 10.0 CVSS score (CVE-2026-76964 and CVE-2026-89126) [C1], the Gateway issue Onapsis named PROXYGATE is CVE-2026-89103 [C2], and a CSRF flaw rated 9.6 affects the administration interfaces in Web Dispatcher and ICM (CVE-2026-89119) [C5]. GitHub advisories also cover SAP Cloud SDK packages and a sandbox project [C6].\n\nMy judgment: treat this like a live incident. Maximum‑severity, unauthenticated issues are the kind that shorten debate and lengthen incident logs."
+      },
+      {
+        "heading": "Walk-your-landscape checklist — the order I’d run",
+        "body": "Start at the edge. Check public-facing Web Dispatchers and ICM endpoints first: the two 10.0 CVSS flaws hit those components directly [C1]. Any instance reachable from the internet (or poorly behind reverse proxies) is highest risk because the two CVSS‑10 issues are associated with unauthenticated impact in the bulletin context [C1].\n\nNext, enumerate SAP Gateway instances and their fronting devices. PROXYGATE (CVE-2026-89103) is reported to allow unauthenticated attackers to run code and take control — treat that as immediate lateral‑movement risk until isolated or patched [C2][C3].\n\nThen map trust boundaries and administration paths. The CSRF issue affects admin interfaces and requires an administrator’s active session to exploit; identify which consoles are reachable from networks where admin sessions could originate [C5].\n\nFollow the call chains: load balancers, reverse proxies, SSO gateways, API gateways, B2B endpoints and partner VPNs. A compromised dispatcher or Gateway is a pivot into backend ABAP processes and service accounts. Also list middleware that depends on SAP Cloud SDK packages referenced in the GitHub advisories — they may provide secondary exposure paths [C6].\n\nCheck custom code that parses HTTP headers, session cookies, or deserializes untrusted input. Flag any outsourced appliances, managed Web Dispatchers, or third‑party teams that hold admin credentials — they change your blast radius.\n\nMy judgment: patching is necessary, but the immediate priority is exposure mapping and containment so you don’t patch after an attacker already has a foothold."
+      },
+      {
+        "heading": "What to patch first, and the two checks to run on Monday",
+        "body": "Patch priority: 1) Public‑facing Web Dispatchers and ICM instances immediately — the two CVSS 10.0 flaws hit those components [C1]. 2) Exposed SAP Gateway instances next — PROXYGATE allows code execution and full takeover if exploited [C3]. 3) Harden admin consoles and session management because the CSRF flaw depends on active admin sessions [C5].\n\nTwo things to run on Monday (do them before tea):\n\n1) External exposure sweep — concrete steps and acceptance criteria.\n• Tool examples: nmap and an HTTP probe. Run: nmap -Pn -p 80,443 --open -sV <target-range> and an HTTP title probe like: nmap -Pn -p 80,443 --script http-title <ip>. Then for each responsive host run: curl -k -I https://<host>/ and curl -k https://<host>/ -o /tmp/host.html to inspect for admin pages.\n• What you’re looking for: any Web Dispatcher, ICM or Gateway UI or login page reachable from the internet. Acceptance: zero reachable admin consoles from untrusted networks; otherwise block at the firewall or WAF and isolate the IP immediately. (Fact: these components are the ones affected in this bulletin) [C1][C2][C5].\n\n2) Privileged‑session audit — concrete steps and acceptance criteria.\n• Use your SAP admin tools (NWA/ABAP admin transactions such as SM04 or equivalent) to list active users and sessions that have admin privileges. Export sessions, note source IPs, and identify any remote admin sessions originating from untrusted networks.\n• Actions: terminate unnecessary admin sessions, force logoff for sessions from unknown IPs, and rotate service and admin credentials exposed to third parties. Acceptance: no active admin sessions from untrusted addresses; all rotated credentials validated and recorded.\n\nMy judgment: these two checks stop obvious exploitation attempts, reduce immediate risk, and buy time to test and deploy vendor patches. Don’t wait to confirm exploit code in the wild — assume exposure until you verify otherwise."
+      }
+    ],
+    "watch": [
+      "SAP Security Notes and patch bundles for the affected CVEs (CVE-2026-76964, CVE-2026-89126, CVE-2026-89103, CVE-2026-89119)",
+      "Updates to the GitHub advisories for SAP Cloud SDK packages and related sandbox projects"
+    ],
+    "social_post": "Four unauthenticated, maximum‑severity SAP flaws hit ICM, Web Dispatcher and Gateway—here’s how to trace exposure across your landscape and what to check on Monday.",
+    "seo_description": "How to map exposure from four maximum‑severity SAP flaws in ICM, Web Dispatcher and Gateway, and the two immediate checks to run on Monday.",
+    "slug": "map-november-sap-max-severity-flaws"
+  },
+  "take_ids": [
+    "E3"
+  ],
+  "take_from_notes": false,
+  "intro": "Four unauthenticated, maximum‑severity flaws this November mean you must treat ICM/Web Dispatcher, Gateway and SAML2 endpoints as compromised until proven otherwise.",
+  "linkedin": {
+    "share_post": "Four unauthenticated, maximum‑severity flaws.\n\nThis November SAP published four critical vulnerabilities affecting ICM, Web Dispatcher and Gateway — two of them carry a CVSS 10.0 and allow unauthenticated impact. Treat any public‑facing dispatcher, ICM or Gateway endpoint as compromised until you’ve proven otherwise.\n\nRun an external exposure sweep and a privileged‑session audit first; patch public dispatchers and exposed Gateway instances next. Two other items in the issue: SAP publishes product‑level cloud emissions data, and SAP Business Suite 7 maintenance deadlines.",
+    "story_post": "You get used to routine programme calls: release windows, test schedules, the usual snag list. Then security drops a bulletin and the meeting changes tone—operations and integration start naming Web Dispatcher, ICM and Gateway.\n\nAfter twenty years of running SAP landscapes, the thing that keeps showing up is this: unauthenticated, maximum‑severity flaws collapse planning into triage. They don’t let you debate trade‑offs. They force a binary question—are we exposed or not?\n\nSo here’s a practical rule I use: stop at the edge first. If an admin console or dispatcher is reachable from untrusted networks, isolate it before you reach for the patch notes. Run a quick external sweep and kill any unexpected privileged sessions. Those two actions buy you time to test and deploy vendor fixes without assuming you’re starting from “clean”.\n\nIf you want the full checklist and the exact Monday checks I’d run, read this week’s newsletter Take.",
+    "story_needs_input": false,
+    "carousel_caption": "Four maximum‑severity SAP flaws this November — map exposure first. Also: product emissions data, ECC maintenance deadlines and more. Save this carousel for your security and roadmap planning. #SAP #security",
+    "carousel_title": "Security and Deadlines"
+  },
+  "deadlines_new": [
+    {
+      "item": "End of extended maintenance",
+      "product": "SAP Business Suite 7",
+      "date": "2030-12-31",
+      "kind": "end_of_extended_maintenance",
+      "source": "https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/",
+      "status": "new"
+    }
+  ],
+  "quality": {
+    "verdict": "pass",
+    "checks": [
+      {
+        "name": "citations_reference_real_claims",
+        "passed": true,
+        "severity": "block",
+        "detail": "unknown claim ids: []"
+      },
+      {
+        "name": "cites_evidence",
+        "passed": true,
+        "severity": "block",
+        "detail": "the piece cites no verified claim"
+      },
+      {
+        "name": "no_banned_terms",
+        "passed": true,
+        "severity": "block",
+        "detail": "contains banned term(s): []"
+      },
+      {
+        "name": "word_count_in_range",
+        "passed": true,
+        "severity": "info",
+        "detail": "654 words (aim 400-650)"
+      },
+      {
+        "name": "has_sections",
+        "passed": true,
+        "severity": "info",
+        "detail": "3 sections"
+      },
+      {
+        "name": "headings_are_specific",
+        "passed": true,
+        "severity": "info",
+        "detail": "stock headings: []"
+      },
+      {
+        "name": "no_generic_phrases",
+        "passed": true,
+        "severity": "info",
+        "detail": "found: []"
+      },
+      {
+        "name": "no_dated_forecasts",
+        "passed": true,
+        "severity": "info",
+        "detail": "contains odds or 'check me on' language"
+      },
+      {
+        "name": "title_length",
+        "passed": true,
+        "severity": "info",
+        "detail": "5 words"
+      }
+    ],
+    "issues": [],
+    "feedback": ""
+  },
+  "warnings": [],
+  "status": "draft"
+}

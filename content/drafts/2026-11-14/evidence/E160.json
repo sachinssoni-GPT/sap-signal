@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E160",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "AstraZeneca is migrating to SAP Cloud ERP Private through the RISE with SAP journey, expanding a 20-year relationship with SAP.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "The move is a full-estate migration extending one of the largest SAP footprints in life sciences.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "AstraZeneca will explore SAP business AI capabilities including Industry AI, Joule, and agentic use cases across finance, supply chain and manufacturing.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "SAP Business Data Cloud and SAP Green Ledger are proposed to create a clean data core and connect sustainability with business data.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "AstraZeneca's Axial programme moves it from SAP ERP Central Component (ECC) to SAP Cloud ERP Private to harmonize data and processes.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "quote": "AstraZeneca, a global biopharmaceutical company, is migrating to SAP Cloud ERP Private through the RISE with SAP journey, expanding the companies’ 20-year relationship.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "retrieved_at": "2026-11-14T09:48:53+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "quote": "The full-estate migration extends one of the largest SAP footprints in life sciences.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "retrieved_at": "2026-11-14T09:48:53+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "quote": "AstraZeneca is exploring a range of business AI capabilities from SAP, including the Industry AI portfolio, the Joule solution and agentic use cases across finance, supply chain and manufacturing.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "retrieved_at": "2026-11-14T09:48:53+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "quote": "The SAP Business Data Cloud solution can support AstraZeneca in building a clean data core, bringing together disparate data sets to create a trusted foundation for future AI adoption.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "retrieved_at": "2026-11-14T09:48:53+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "quote": "Through its Axial Business Transformation Programme, AstraZeneca is moving from legacy environments in SAP ERP Central Component to SAP Cloud ERP Private, supporting more standardized ways of working, harmonized data and connected processes across the enterprise.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/sap-expands-collaboration-astrazeneca-rise-with-sap-business-ai/",
+      "retrieved_at": "2026-11-14T09:48:53+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 5 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

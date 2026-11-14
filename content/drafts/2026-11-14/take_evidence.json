@@ -1,0 +1,156 @@
+{
+  "candidate_id": "E3",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Two flaws rated 10.0, the maximum on the Common Vulnerability Scoring System (CVSS), affect the Internet Communication Manager (ICM) in SAP NetWeaver AS ABAP and SAP Web Dispatcher (CVE-2026-76964 and CVE-2026-89126).",
+      "central": true,
+      "claim_type": "market_or_impact"
+    },
+    {
+      "id": "C2",
+      "text": "The third maximum-severity flaw, which Onapsis named PROXYGATE, sits in SAP Gateway (CVE-2026-89103).",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "An unauthenticated attacker could use that to run code and take control of the system.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "An unauthenticated attacker could forge one, impersonate any user, including privileged accounts, and gain complete control of the system.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "The cross-site request forgery flaw (CVE-2026-89119), rated 9.6, affects the administration interface in the Web Dispatcher and ICM and depends on an administrator’s active session.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C6",
+      "text": "The four GitHub advisories cover SAP Cloud SDK packages and a sandbox project.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "Two flaws rated 10.0, the maximum on the Common Vulnerability Scoring System (CVSS), affect the Internet Communication Manager (ICM) in SAP NetWeaver AS ABAP and SAP Web Dispatcher (CVE-2026-76964 and CVE-2026-89126).",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "The third maximum-severity flaw, which Onapsis named PROXYGATE, sits in SAP Gateway (CVE-2026-89103).",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "An unauthenticated attacker could use that to run code and take control of the system.",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "An unauthenticated attacker could forge one, impersonate any user, including privileged accounts, and gain complete control of the system.",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "The cross-site request forgery flaw (CVE-2026-89119), rated 9.6, affects the administration interface in the Web Dispatcher and ICM and depends on an administrator’s active session.",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C6",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "The four GitHub advisories cover SAP Cloud SDK packages and a sandbox project.",
+      "origin": "ERP Today article",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "sap_trade_press",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:38+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C6",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    }
+  ],
+  "summary": "combined ledger",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

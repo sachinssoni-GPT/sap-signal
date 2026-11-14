@@ -1,0 +1,3 @@
+Mapping November's SAP maximum‑severity flaws
+
+How to find which systems, interfaces, custom code and contracts are exposed, what to patch first, and two immediate checks for Monday.
