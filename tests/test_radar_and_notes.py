@@ -98,3 +98,21 @@ def test_collect_saves_only_my_take_messages_and_voice_notes(tmp_path, monkeypat
     assert (tmp_path / "data" / "telegram_offset.txt").read_text() == "13"
     assert notes.archive_notes(tmp_path / "out") == 2 and notes.read_notes() == ""
     assert any("2 new" in line for line in log)
+
+
+def test_control_panel_sends_long_lived_signed_run_and_notes_buttons(monkeypatch):
+    import hashlib, hmac, time
+    from urllib.parse import parse_qs, urlparse
+    from sapsignal.notify import messages
+    monkeypatch.setenv("APPROVAL_SECRET", "s" * 40)
+    monkeypatch.setitem(config.get_config()["approval"], "worker_url", "https://w.example.workers.dev")
+    sent = []
+    monkeypatch.setattr(messages, "send_telegram", lambda text, rows=None, **k: sent.append((text, rows)) or "ok")
+    messages.send_control_panel()
+    (text, rows), = sent
+    links = [u for row in rows for _, u in row]
+    for u, act in zip(links, ("run", "notes")):
+        q = {k: v[0] for k, v in parse_qs(urlparse(u).query).items()}
+        assert q["action"] == act and int(q["exp"]) > time.time() + 300 * 86400
+        want = hmac.new(b"s" * 40, f"{act}:{q['date']}:{q['exp']}".encode(), hashlib.sha256).hexdigest()
+        assert q["sig"] == want                          # what the Worker verifies

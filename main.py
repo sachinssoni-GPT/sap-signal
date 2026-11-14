@@ -11,6 +11,7 @@
   python main.py reject <id> [--reason ..] [--notify]
   python main.py remind thursday|saturday send that day's LinkedIn post to Telegram (latest approved issue)
   python main.py collect-notes            save your Telegram /take messages and voice notes to notes/
+  python main.py control-panel            send a pinnable Telegram message with "build now" / "collect notes" buttons
   python main.py check-sources            test the search/LLM keys and secrets
 
 In GitHub Actions, approve/reject come from the signed buttons in the email/Telegram (via the approval
@@ -243,6 +244,12 @@ def cmd_remind(args) -> int:
     return 0
 
 
+def cmd_control_panel(_args) -> int:
+    from sapsignal.notify.messages import send_control_panel
+    print(*send_control_panel(), sep="\n")
+    return 0
+
+
 def cmd_collect_notes(_args) -> int:
     from sapsignal.notes import collect_telegram
     print(*collect_telegram(), sep="\n")
@@ -308,6 +315,7 @@ def main() -> int:
     p = sub.add_parser("remind"); p.add_argument("day", choices=["thursday", "saturday"])
     p.add_argument("--edition", type=_edition); p.set_defaults(fn=cmd_remind)
     sub.add_parser("collect-notes").set_defaults(fn=cmd_collect_notes)
+    sub.add_parser("control-panel").set_defaults(fn=cmd_control_panel)
     sub.add_parser("check-sources").set_defaults(fn=cmd_check_sources)
     p = sub.add_parser("scan"); p.add_argument("--top", type=int, default=15); p.set_defaults(fn=cmd_scan)
     args = ap.parse_args()

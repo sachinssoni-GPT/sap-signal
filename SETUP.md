@@ -86,3 +86,15 @@ dry run; nothing is ever posted for you.
 LinkedIn → turn on Creator Mode if needed → Write article → Create a newsletter (name, description,
 weekly). Paste its URL into `config.yaml` → `linkedin.newsletter_url`. From month 2, if you add the free
 checklist signup, set `linkedin.signup_url`.
+
+## Run it from Telegram (control panel)
+After any Worker change, redeploy it: `cd approval-worker && npx wrangler deploy`. Then, once:
+```bash
+python main.py control-panel
+```
+The bot sends a message with **Build a new draft now** and **Collect my notes now** buttons. Pin it.
+The buttons are signed and work for a year; run the command again for fresh ones.
+
+## Brand
+`assets/brand/`: `logo-teal.png` (LinkedIn newsletter logo), `logo-light.png`, `logo-dark.png`, `wordmark.png`
+(headers, banners) and `mark.png` (used on the cover and carousel).

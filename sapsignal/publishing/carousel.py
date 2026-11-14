@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw
 
 from .. import deadlines as dl
 from ..schemas import Edition
-from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, safe_text
+from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
 
 W, H = 1080, 1350
 L, R = 96, W - 96
@@ -48,6 +48,10 @@ def _frame(ed: Edition, publication: dict, page: int, total: int):
     d.rectangle([0, 0, W, 14], fill=ACCENT)
     brand = _font("Inter-SemiBold.ttf", 30)
     x = L
+    mk = brand_mark(54)
+    if mk is not None:
+        img.paste(mk, (L, 72), mk)
+        x = L + mk.width + 22
     for ch in safe_text(publication.get("name", "")).upper():
         d.text((x, 84), ch, font=brand, fill=ACCENT)
         x += d.textlength(ch, font=brand) + 6

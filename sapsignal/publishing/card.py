@@ -51,3 +51,13 @@ def _wrap(draw: ImageDraw.ImageDraw, text: str, font, max_width: int) -> list[st
     return lines
 
 
+
+
+def brand_mark(height: int):
+    """The logo mark (assets/brand/mark.png) scaled to `height` px, or None if it's missing."""
+    from PIL import Image
+    p = PROJECT_DIR / "assets" / "brand" / "mark.png"
+    if not p.exists():
+        return None
+    m = Image.open(p).convert("RGBA")
+    return m.resize((max(1, round(m.width * height / m.height)), height), Image.LANCZOS)

@@ -11,7 +11,7 @@ on:
         type: boolean
         default: false
   repository_dispatch:
-    types: [sig-regenerate]     # the Regenerate button, via the approval Worker
+    types: [sig-regenerate, sig-run]   # Regenerate button / "Build a new draft now" (Telegram control panel)
 
 permissions:
   contents: write
@@ -54,7 +54,7 @@ jobs:
           if [ "$EVENT_ACTION" = "sig-regenerate" ]; then
             python main.py reject "$INPUT_EDITION" --reason "regenerate requested" || true
             python main.py run --edition "$INPUT_EDITION"
-          elif [ "$INPUT_FORCE" = "true" ]; then
+          elif [ "$INPUT_FORCE" = "true" ] || [ "$EVENT_ACTION" = "sig-run" ]; then
             python main.py run --force
           else
             python main.py run

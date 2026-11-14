@@ -8,6 +8,8 @@ const ACTIONS = {
   approve: { event: "sig-approve", label: "Approve this issue", color: "#1f7a3a" },
   reject: { event: "sig-reject", label: "Reject this issue", color: "#a62b2b" },
   regenerate: { event: "sig-regenerate", label: "Discard and regenerate", color: "#555" },
+  run: { event: "sig-run", label: "Build a new draft now", color: "#0b6e69" },
+  notes: { event: "sig-notes", label: "Collect my notes now", color: "#0b6e69" },
 };
 
 const enc = new TextEncoder();
@@ -73,9 +75,10 @@ export default {
       const err = await verify(env, p);
       if (err) return page("Link not valid", `<h2>Link not valid</h2><p>${esc(err)}</p>`, 403);
       const a = ACTIONS[p.action];
-      const reasonBox = p.action === "approve" ? "" :
+      const reasonBox = ["approve", "run", "notes"].includes(p.action) ? "" :
         `<label class="muted">Reason (optional, helps tune the pipeline)</label><textarea name="reason" rows="3"></textarea>`;
-      return page(a.label, `<h2>${esc(a.label)}</h2><p>Issue <b>${esc(p.date)}</b></p>
+      const what = ["run", "notes"].includes(p.action) ? "<p>From your Telegram control panel.</p>" : `<p>Issue <b>${esc(p.date)}</b></p>`;
+      return page(a.label, `<h2>${esc(a.label)}</h2>${what}
 <form method="post">${["action", "date", "exp", "sig"].map((k) => `<input type="hidden" name="${k}" value="${esc(p[k])}">`).join("")}
 ${reasonBox}<button style="background:${a.color}">Confirm: ${esc(a.label)}</button></form>
 <p class="muted">Nothing happens until you press the button.</p>`);
@@ -89,7 +92,9 @@ ${reasonBox}<button style="background:${a.color}">Confirm: ${esc(a.label)}</butt
       if (failed) return page("Could not start", `<h2>Could not start the workflow</h2><p>${esc(failed)}</p>`, 502);
       const done = { approve: "Approved. Your LinkedIn kit (article, cover, title, share post) arrives on Telegram in about two minutes.",
         reject: "Issue rejected. Your notes are kept for the next run.",
-        regenerate: "This draft is discarded and a fresh one is being generated. Expect a new email in 10 to 20 minutes." };
+        regenerate: "This draft is discarded and a fresh one is being generated. Expect a new email in 10 to 20 minutes.",
+        run: "A new draft is being built from this week's news and your notes. Expect it by email and Telegram in 10 to 20 minutes.",
+        notes: "Your Telegram notes are being collected. The bot confirms in about a minute." };
       return page("Done", `<h2>Done</h2><p>${esc(done[p.action])}</p>`);
     }
     return page("Method not allowed", "<p>Method not allowed.</p>", 405);

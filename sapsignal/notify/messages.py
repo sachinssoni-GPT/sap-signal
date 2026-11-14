@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import html
 import os
-import re
+import time
 from pathlib import Path
 
 import markdown as md
@@ -182,3 +182,25 @@ def notify_no_story(report: dict) -> list[str]:
     return [send_email(f"[NO ISSUE] {name} · {report.get('edition_date')}",
                        f"<html><body><pre>{html.escape(text)}</pre></body></html>", text),
             send_telegram(html.escape(text[:3500]))]
+
+
+# ------------------------------------------------------------------ control panel (pin it in Telegram)
+PANEL_DATE = "2000-01-01"     # long-lived panel links are not tied to an issue
+
+
+def send_control_panel(days: int = 365) -> list[str]:
+    """A message with signed buttons to run the pipeline ad hoc. Pin it in the chat; it works for `days`."""
+    a = get_config().get("approval", {}) or {}
+    url = a.get("worker_url", "")
+    if not url or "YOUR-SUBDOMAIN" in url:
+        raise RuntimeError("Set approval.worker_url in config.yaml to your deployed approval Worker")
+    run = decision_link(url, "run", PANEL_DATE, days * 24)
+    notes = decision_link(url, "notes", PANEL_DATE, days * 24)
+    text = ("<b>SAP Signal control panel</b>\n\n"
+            "<b>Build a new draft now</b>: runs the weekly pipeline immediately (replaces an unapproved draft "
+            "from today; never touches an approved issue).\n"
+            "<b>Collect my notes now</b>: saves your /take messages and voice notes right away instead of "
+            "waiting up to 4 hours.\n\n"
+            f"Pin this message. The buttons work until {time.strftime('%d %b %Y', time.gmtime(time.time() + days * 86400))}; "
+            "run <code>python main.py control-panel</code> again for fresh ones.")
+    return [send_telegram(text, [[("Build a new draft now", run)], [("Collect my notes now", notes)]])]

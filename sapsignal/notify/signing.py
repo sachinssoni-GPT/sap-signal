@@ -6,7 +6,7 @@ import os
 import time
 from urllib.parse import urlencode
 
-ACTIONS = ("approve", "reject", "regenerate", "extra")
+ACTIONS = ("approve", "reject", "regenerate", "run", "notes")
 
 
 def _secret() -> bytes:

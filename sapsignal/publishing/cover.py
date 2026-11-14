@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from ..schemas import Edition
-from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, safe_text
+from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
 
 W, H = 1280, 720
 
@@ -33,6 +33,10 @@ def render_cover(ed: Edition, publication: dict, out: Path) -> Path:
     d.rectangle([0, 0, W, 14], fill=ACCENT)
     brand = _font("Inter-SemiBold.ttf", 30)
     x = left
+    mk = brand_mark(54)
+    if mk is not None:
+        img.paste(mk, (left, 58), mk)
+        x = left + mk.width + 22
     for ch in safe_text(publication.get("name", "")).upper():          # letter-spaced masthead
         d.text((x, 70), ch, font=brand, fill=ACCENT)
         x += d.textlength(ch, font=brand) + 6
