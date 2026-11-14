@@ -50,7 +50,7 @@ notes:
 
 # Approval links point at the Cloudflare Worker in approval-worker/ (deploy your own copy).
 approval:
-  worker_url: "https://sap-signal-approval.YOUR-SUBDOMAIN.workers.dev"
+  worker_url: "https://sap-signal-approval.undercurrent70.workers.dev"
   link_ttl_hours: 72
 
 fetch:
