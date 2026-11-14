@@ -1,3 +1,3 @@
 # Editorial warnings
 
-- None
+- thin issue: only 2 items could be read and checked

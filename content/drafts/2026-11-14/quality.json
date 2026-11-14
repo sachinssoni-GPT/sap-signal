@@ -23,7 +23,7 @@
       "name": "word_count_in_range",
       "passed": true,
       "severity": "info",
-      "detail": "654 words (aim 400-650)"
+      "detail": "562 words (aim 400-650)"
     },
     {
       "name": "has_sections",
@@ -53,7 +53,7 @@
       "name": "title_length",
       "passed": true,
       "severity": "info",
-      "detail": "5 words"
+      "detail": "9 words"
     }
   ],
   "issues": [],
