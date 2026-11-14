@@ -5,7 +5,7 @@ only**. It is never treated as a source of facts, and the agents are told not to
 that are not written here.
 
 ## Who is writing
-- Sachin. Enterprise architect with 20+ years in SAP (ECC, PI/PO and Integration Suite, ABAP, BTP,
+- Sachin. Enterprise architect with 20+ years in SAP (S4HANA, ECC, Enterprise Integration, BAIP,BTP,ABAP,Quality Expert
   S/4HANA migration planning, architecture governance). SAP Certified Enterprise Architect.
 - Reads SAP change the way an architect reads a landscape: dependencies, interfaces, custom code,
   contracts, what breaks when one component changes, and who has to fix it.
