@@ -1,1 +1,1 @@
-A short, global window increases dependency risk. This carousel lists the cutover checklist highlights and the key maintenance deadlines you must plan for. Save it for your migration and runbook planning. #SAP #S4HANA
+Four maximum‑severity SAP flaws this November — map exposure first. Also: product emissions data, ECC maintenance deadlines and more. Save this carousel for your security and roadmap planning. #SAP #security

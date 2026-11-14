@@ -1,9 +1,7 @@
-A quiet war room at 02:00 changes how you think as an architect.
+You get used to routine programme calls: release windows, test schedules, the usual snag list. Then security drops a bulletin and the meeting changes tone—operations and integration start naming Web Dispatcher, ICM and Gateway.
 
-When a cutover has a 30‑hour single window and no Plan B, your mental model shifts from “we’ll recover” to “we must not create extra failure modes.” That changes priorities: check the interfaces first, lock down conversion mechanics, and map ownership of every failing component before the clock starts.
+After twenty years of running SAP landscapes, the thing that keeps showing up is this: unauthenticated, maximum‑severity flaws collapse planning into triage. They don’t let you debate trade‑offs. They force a binary question—are we exposed or not?
 
-[YOUR STORY: a time an integration broke at go‑live because a team assumed a consumer would reconcile manually] — if you have a short, single window, that assumption becomes a showstopper. Treat distributed tester sign‑offs as useful only if each tester’s scope maps to a live severity and an on‑call owner.
+So here’s a practical rule I use: stop at the edge first. If an admin console or dispatcher is reachable from untrusted networks, isolate it before you reach for the patch notes. Run a quick external sweep and kill any unexpected privileged sessions. Those two actions buy you time to test and deploy vendor fixes without assuming you’re starting from “clean”.
 
-Practical takeaway: on Monday after such a cutover, produce a cross‑map linking every interface, job and custom object to a named on‑call owner and an explicit rollback or compensation action. Then automate and rehearse the three highest‑risk interfaces.
-
-Read the full Take in this week’s newsletter for the checklist I use when there is no fallback.
+If you want the full checklist and the exact Monday checks I’d run, read this week’s newsletter Take.

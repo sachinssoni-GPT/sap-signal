@@ -3,31 +3,31 @@
   "claims": [
     {
       "id": "C1",
-      "text": "Applexus announced Cole Haan went live on SAP S/4HANA across three regions in 18 months.",
+      "text": "SAP’s November 2026 Security Patch Day disclosed four maximum-severity flaws, some requiring no authentication.",
       "central": true,
       "claim_type": "general"
     },
     {
       "id": "C2",
-      "text": "The program used a single global cutover and maintained business continuity with no disruption.",
+      "text": "Two 10.0‑CVSS flaws (ICM/Web Dispatcher) named ICM2SHELL allow unauthenticated memory corruption and remote code execution.",
       "central": false,
       "claim_type": "general"
     },
     {
       "id": "C3",
-      "text": "Cole Haan replaced a 20-year-old SAP AFS environment and a separate retail merchandising system across North America, Europe and Asia.",
+      "text": "A maximum‑severity Gateway flaw (PROXYGATE) can let outside attackers be treated as internal application servers due to default ACLs.",
       "central": false,
       "claim_type": "general"
     },
     {
       "id": "C4",
-      "text": "Applexus used its CeleRITE AI-powered selective migration platform to analyze legacy artefacts and decide what to retain or retire.",
+      "text": "A SAML2 service‑provider flaw allows forged identity confirmations, enabling unauthenticated attackers to impersonate any user.",
       "central": false,
       "claim_type": "general"
     },
     {
       "id": "C5",
-      "text": "The program also established a modern cloud-based enterprise data platform and AI foundation.",
+      "text": "Remediation workload is large: numerous Security Notes, GitHub advisories and manual steps are required.",
       "central": false,
       "claim_type": "general"
     }
@@ -35,62 +35,62 @@
   "evidence": [
     {
       "claim_id": "C1",
-      "url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "quote": "Applexus Technologies, an AI-first SAP consulting firm, announced the successful go-live of Cole Haan on SAP S/4HANA for fashion and vertical business, completing a complex global transformation across three regions in just 18 months.",
-      "origin": "prnewswire.com",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "SAP’s November 2026 Security Patch Day put its most serious flaws in the infrastructure that connects systems, processes requests, and authenticates users. Attackers need no credentials to reach the most severe of them.",
+      "origin": "erp.today",
       "stance": "supports",
-      "source_tier": "vendor",
+      "source_tier": "trade_press",
       "source_perspective": "unclassified",
-      "resolved_url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "retrieved_at": "2026-11-14T10:13:22+00:00",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
       "quote_verified": true
     },
     {
       "claim_id": "C2",
-      "url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "quote": "The program integrated end-to-end business processes across planning, buying, supply chain, wholesale, retail, direct-to-consumer and finance in a single global cutover.",
-      "origin": "prnewswire.com",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "Two flaws rated 10.0, the maximum on the Common Vulnerability Scoring System (CVSS), affect the Internet Communication Manager (ICM) in SAP NetWeaver AS ABAP and SAP Web Dispatcher (CVE-2026-76964 and CVE-2026-89126).",
+      "origin": "erp.today",
       "stance": "supports",
-      "source_tier": "vendor",
+      "source_tier": "trade_press",
       "source_perspective": "unclassified",
-      "resolved_url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "retrieved_at": "2026-11-14T10:13:22+00:00",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
       "quote_verified": true
     },
     {
       "claim_id": "C3",
-      "url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "quote": "Cole Haan's transformation spanned operations across North America, Europe and Asia, replacing a 20-year-old SAP AFS environment and a separate retail merchandising system.",
-      "origin": "prnewswire.com",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "Its default access control list can treat an outside attacker with network access as an internal application server, which opens sensitive SAP functions to that attacker.",
+      "origin": "erp.today",
       "stance": "supports",
-      "source_tier": "vendor",
+      "source_tier": "trade_press",
       "source_perspective": "unclassified",
-      "resolved_url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "retrieved_at": "2026-11-14T10:13:22+00:00",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
       "quote_verified": true
     },
     {
       "claim_id": "C4",
-      "url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "quote": "At the center of this transformation was Applexus' proprietary AI-powered selective migration platform, CeleRITE, which analyzed legacy code, interfaces, data, configurations and access controls to determine what to retain, modernize or retire.",
-      "origin": "prnewswire.com",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "An unauthenticated attacker could forge one, impersonate any user, including privileged accounts, and gain complete control of the system.",
+      "origin": "erp.today",
       "stance": "supports",
-      "source_tier": "vendor",
+      "source_tier": "trade_press",
       "source_perspective": "unclassified",
-      "resolved_url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "retrieved_at": "2026-11-14T10:13:22+00:00",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
       "quote_verified": true
     },
     {
       "claim_id": "C5",
-      "url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "quote": "The transformation also included establishing a modern cloud-based enterprise data platform and AI foundation.",
-      "origin": "prnewswire.com",
+      "url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "quote": "SAP’s bulletin lists 35 new Security Notes, four GitHub advisories, and three updates, and nine of the new notes address critical vulnerabilities.",
+      "origin": "erp.today",
       "stance": "supports",
-      "source_tier": "vendor",
+      "source_tier": "trade_press",
       "source_perspective": "unclassified",
-      "resolved_url": "https://www.prnewswire.com/news-releases/cole-haan-completes-global-sap-s4hana-transformation-across-three-regions-in-18-months-with-applexus-ai-powered-delivery-302935892.html",
-      "retrieved_at": "2026-11-14T10:13:22+00:00",
+      "resolved_url": "https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/",
+      "retrieved_at": "2026-11-14T09:48:55+00:00",
       "quote_verified": true
     }
   ],
@@ -121,7 +121,7 @@
       "notes": "quote found on the page read"
     }
   ],
-  "summary": "Read at prnewswire.com; 5 claim(s) matched verbatim.",
+  "summary": "Read at erp.today; 5 claim(s) matched verbatim.",
   "narrative_assessment": {
     "source_perspectives": [],
     "official_positions": [],

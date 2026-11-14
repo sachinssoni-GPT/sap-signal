@@ -1,7 +1,5 @@
-A 30-hour global cutover, no Plan B.
+Four unauthenticated, maximum‑severity flaws.
 
-I walk a cutover from the control room to the middleware queue and explain what an architect must check first when the entire landscape must convert in a single short window. Interfaces, conversion mechanics, custom code and clear operational ownership are the places where a tight, global brownfield cutover will break — and where you can prevent the worst outcomes.
+This November SAP published four critical vulnerabilities affecting ICM, Web Dispatcher and Gateway — two of them carry a CVSS 10.0 and allow unauthenticated impact. Treat any public‑facing dispatcher, ICM or Gateway endpoint as compromised until you’ve proven otherwise.
 
-If you run SAP landscapes, the difference between a survivable 30‑hour window and a costly outage is what you verify before the clock starts.
-
-Also in this issue: Cole Haan’s global S/4 go‑live summary, and the Deadline Radar for BW, ECC and PI/PO maintenance.
+Run an external exposure sweep and a privileged‑session audit first; patch public dispatchers and exposed Gateway instances next. Two other items in the issue: SAP publishes product‑level cloud emissions data, and SAP Business Suite 7 maintenance deadlines.
