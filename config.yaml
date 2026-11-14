@@ -11,7 +11,7 @@ publication:
 linkedin:
   # Paste your LinkedIn newsletter's URL here once you've created it (Creator Mode -> Write article ->
   # Create a newsletter). Used in the Thursday/Saturday posts. Empty = posts say "in this week's newsletter".
-  newsletter_url: ""
+  newsletter_url: "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7527322632673988608"
   # Optional (Phase 1, from month 2): a free email signup you own, e.g. a beehiiv form for the
   # "ECC 2027 decision checklist". Empty = no signup line anywhere.
   signup_url: ""
