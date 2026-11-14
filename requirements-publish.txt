@@ -1,0 +1,8 @@
+# Minimal set for the publish/reject workflow (no LLM calls happen there)
+pydantic>=2.5
+pyyaml
+python-dotenv
+requests
+markdown
+pillow
+fonttools

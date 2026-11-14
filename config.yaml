@@ -1,0 +1,282 @@
+# ---------------------------------------------------------------------------------------------
+# The SAP Signal: a weekly, verified SAP briefing published on LinkedIn (Phase 1: free, LinkedIn only).
+# Working title: change `publication.name` once you've picked the final name (check SAP's trademark
+# guidelines before putting "SAP" first in a product name).
+publication:
+  name: "The SAP Signal"
+  tagline: "What changed in SAP this week, what it breaks, and what to do about it."
+  author: "Sachin"
+  timezone: "Asia/Kolkata"
+
+linkedin:
+  # Paste your LinkedIn newsletter's URL here once you've created it (Creator Mode -> Write article ->
+  # Create a newsletter). Used in the Thursday/Saturday posts. Empty = posts say "in this week's newsletter".
+  newsletter_url: ""
+  # Optional (Phase 1, from month 2): a free email signup you own, e.g. a beehiiv form for the
+  # "ECC 2027 decision checklist". Empty = no signup line anywhere.
+  signup_url: ""
+  signup_offer: "Get the free ECC 2027 decision checklist"
+
+# One issue a week: the Signal (the week's lead) + up to 5 more items + the Architect's Take
+# + the Deadline Radar.
+edition:
+  target_items: 6          # the Signal + five things that moved
+  min_items: 4             # below this the approval message flags a thin week
+  max_items: 7
+  reserve_factor: 2.0      # read this many x target, so paywalls/failures don't thin the issue
+  per_section:             # min / max items per beat (min 0: a quiet beat is fine)
+    ecc_exit:    {min: 0, max: 2}
+    clean_core:  {min: 0, max: 2}
+    integration: {min: 0, max: 2}
+    data_ai:     {min: 0, max: 2}
+    commercials: {min: 0, max: 2}
+    ecosystem:   {min: 0, max: 2}
+  min_significance: 45     # buyer-impact score (0-100) a story needs at triage
+  take:
+    min_words: 400
+    max_words: 650
+    avoid_recent_formats: 2
+  radar_rows: 8            # upcoming deadlines shown in the issue and the carousel
+
+voice_file: voice.md       # your voice profile + sample posts; shapes the Take and the LinkedIn posts
+
+# Your own notes for the Take. During the week, send the bot a message starting with /take
+# (or a voice note) and the next run writes the Take from YOUR points. You can also drop a text file
+# in notes/ (any name, .md or .txt). Both are cleared once an issue is published.
+notes:
+  telegram: true
+  transcribe_voice: true   # voice notes -> text with OpenAI speech-to-text (a few cents a month)
+  transcribe_model: gpt-4o-mini-transcribe
+
+# Approval links point at the Cloudflare Worker in approval-worker/ (deploy your own copy).
+approval:
+  worker_url: "https://sap-signal-approval.YOUR-SUBDOMAIN.workers.dev"
+  link_ttl_hours: 72
+
+fetch:
+  fallback: tavily_extract
+
+# Words that must never appear in anything the pipeline writes (e.g. your employer, its clients).
+# Keep the real list OUT of this file: set the GitHub secret / .env variable BANNED_TERMS to a
+# comma-separated list. Anything listed here is added to it.
+privacy:
+  banned_terms: []
+# ---------------------------------------------------------------------------------------------
+
+models:
+  triage: gpt-5-mini
+  briefer: gpt-5-mini
+  planner: gpt-5-mini
+  analyst: gpt-5-mini       # writes the Architect's Take
+  challenger: gpt-5-nano    # second reader on the Take
+  extractor: gpt-5-nano     # deep verification of the lead story + Deadline Radar extraction
+  verifier: gpt-5-mini
+  social: gpt-5-mini        # LinkedIn posts in your voice
+  fallback: gpt-4o-mini
+  reasoning_effort:
+    default: low
+    analyst: medium
+  temperature_factual: 0.0
+  temperature_creative: 0.5
+
+search:
+  provider: googlenews+tavily
+  max_results: 8
+
+discovery:
+  lookback_hours: 170        # a week, plus a little overlap
+  feed_days: 7               # Google News window for the section queries
+  max_events_to_triage: 200
+  max_candidates: 30
+  telegram_channels: []      # public channels as tips only (none by default)
+  rss_feeds: []              # extra publisher feeds not tied to one beat
+
+# The news net: every query runs every week as a free Google News feed (no search credits).
+# Add or remove lines freely; `python main.py scan` shows what they catch.
+sections:
+  ecc_exit:
+    region: US
+    queries:
+      - SAP S/4HANA migration
+      - SAP ECC end of maintenance
+      - RISE with SAP
+      - GROW with SAP
+      - SAP S/4HANA go-live
+      - SAP ERP private edition transition option
+  clean_core:
+    region: US
+    queries:
+      - SAP clean core
+      - SAP Business Technology Platform
+      - ABAP Cloud
+      - SAP Build
+      - SAP extensibility
+  integration:
+    region: US
+    queries:
+      - SAP Integration Suite
+      - SAP Event Mesh
+      - SAP Process Orchestration migration
+      - SAP API deprecation
+  data_ai:
+    region: US
+    queries:
+      - SAP Joule
+      - SAP Business Data Cloud
+      - SAP Datasphere
+      - SAP AI agents
+      - SAP Databricks
+  commercials:
+    region: US
+    queries:
+      - SAP licensing
+      - SAP pricing customers
+      - SAP maintenance fees
+      - SAP third-party support
+      - SAP digital access
+  ecosystem:
+    region: US
+    queries:
+      - SAP earnings
+      - SAP Christian Klein
+      - SAP acquisition
+      - SAP implementation lawsuit
+      - DSAG SAP
+      - ASUG SAP
+      - site:news.sap.com
+      - site:theregister.com SAP
+      - site:diginomica.com SAP
+      - site:erp.today SAP
+
+verification:
+  search_budget: 3
+  max_steps: 6
+  parallel: 4
+  story_timeout_s: 240
+  deep_for_big_read: true
+  default_min_independent_origins: 1
+  claim_type_rules:
+    official_statement: 1
+    conflict_or_casualty: 2
+    market_or_impact: 2
+    intelligence_or_attribution: 2
+    general: 1
+  fetch_timeout_s: 60
+
+quality:
+  max_revisions: 1
+  banned_phrases:
+    - "in today's fast-paced"
+    - "game-changer"
+    - "game changer"
+    - "revolutionize"
+    - "unlock the power"
+    - "paradigm shift"
+    - "it is important to note"
+    - "delve"
+    - "seamless"
+    - "synergy"
+
+source_policy:
+  excluded: []
+  # Tavily fallback searches only look at these domains when re-sourcing a blocked page
+  search_domains:
+    - news.sap.com
+    - sap.com
+    - theregister.com
+    - diginomica.com
+    - erp.today
+    - sapinsider.org
+    - computerweekly.com
+    - cio.com
+    - reuters.com
+    - cnbc.com
+    - dsag.de
+    - asug.com
+
+sources:   # domain -> tier. Unlisted domains are "unknown" and cannot establish a story alone.
+  primary:
+    - sap.com
+    - news.sap.com
+    - help.sap.com
+    - roadmaps.sap.com
+    - api.sap.com
+    - dsag.de
+    - asug.com
+    - ukisug.co.uk
+    - sec.gov
+  tier1_press:
+    - reuters.com
+    - apnews.com
+    - bloomberg.com
+    - ft.com
+    - wsj.com
+    - cnbc.com
+    - handelsblatt.com
+  trade_press:
+    - theregister.com
+    - diginomica.com
+    - erp.today
+    - sapinsider.org
+    - insidesap.com
+    - computerweekly.com
+    - computerwoche.de
+    - cio.com
+    - techtarget.com
+    - zdnet.com
+    - itpro.com
+    - siliconangle.com
+    - techcrunch.com
+    - venturebeat.com
+    - e3mag.com
+  research_institution:
+    - gartner.com
+    - forrester.com
+    - idc.com
+    - constellationr.com
+  regional_press:
+    - economictimes.indiatimes.com
+    - livemint.com
+    - business-standard.com
+  vendor:                 # interested parties: used, but never alone, and labelled
+    - community.sap.com
+    - blogs.sap.com
+    - riministreet.com
+    - spinnakersupport.com
+    - support-revolution.com
+    - leverx.com
+    - accenture.com
+    - deloitte.com
+    - capgemini.com
+    - infosys.com
+    - tcs.com
+    - wipro.com
+    - ibm.com
+    - prnewswire.com
+    - businesswire.com
+    - globenewswire.com
+  aggregator:
+    - news.google.com
+    - msn.com
+    - news.yahoo.com
+    - flipboard.com
+    - reddit.com
+    - linkedin.com
+
+paths:
+  db: data/editorial.db
+  drafts: content/drafts
+  published: content/published
+  rejected: content/rejected
+  reports: reports
+  notes: notes
+  deadlines: deadlines.yaml
+
+verbose_agents: false
+
+source_perspectives:
+  sap_official: [sap.com, news.sap.com, help.sap.com]
+  user_group: [dsag.de, asug.com, ukisug.co.uk]
+  financial_press: [reuters.com, bloomberg.com, ft.com, wsj.com, cnbc.com, handelsblatt.com]
+  sap_trade_press: [theregister.com, diginomica.com, erp.today, sapinsider.org, insidesap.com, e3mag.com]
+  interested_party: [riministreet.com, spinnakersupport.com, support-revolution.com]

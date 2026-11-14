@@ -1,0 +1,13 @@
+crewai
+pydantic>=2.5
+pyyaml
+python-dotenv
+requests
+feedparser
+trafilatura
+markdown
+googlenewsdecoder
+pytest
+pillow
+fonttools
+pypdf

@@ -1,0 +1,35 @@
+name: LinkedIn reminders
+
+on:
+  schedule:
+    - cron: "0 13 * * 4"        # Thursday 18:30 IST (08:00 New York): the story post
+    - cron: "30 4 * * 6"        # Saturday 10:00 IST: the carousel
+  workflow_dispatch:
+    inputs:
+      day:
+        type: choice
+        options: [thursday, saturday]
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      SCHEDULE: ${{ github.event.schedule }}
+      INPUT_DAY: ${{ github.event.inputs.day }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-publish.txt
+      - name: Send today's post
+        run: |
+          DAY="$INPUT_DAY"
+          if [ -z "$DAY" ]; then
+            if [ "$SCHEDULE" = "0 13 * * 4" ]; then DAY=thursday; else DAY=saturday; fi
+          fi
+          python main.py remind "$DAY"

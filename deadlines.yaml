@@ -1,0 +1,50 @@
+# The Deadline Radar. Every row needs a public source. The weekly run PROPOSES new rows only when the
+# date appears word for word in a quote from a page it read; they are added here (status: new) when you
+# approve the issue. Edit freely: fix a date, delete a row, or set status: confirmed / passed.
+#
+# date: YYYY-MM-DD, or YYYY-MM when only the month is known
+# kind: end_of_mainstream_maintenance | end_of_extended_maintenance | retirement | deprecation |
+#       licensing_window | release | price_change | event | other
+rows:
+  - item: Mainstream maintenance ends for ECC 6.0 (EHP 6-8)
+    product: SAP ECC 6.0 / Business Suite 7
+    date: "2027-12-31"
+    kind: end_of_mainstream_maintenance
+    source: https://www.dvwanalytics.com/blog/sap-ecc-end-of-support-a-practical-primer
+    status: confirmed
+  - item: Optional extended maintenance ends (2-point premium)
+    product: SAP ECC 6.0 / Business Suite 7
+    date: "2030-12-31"
+    kind: end_of_extended_maintenance
+    source: https://www.panorama-consulting.com/18-months-to-the-sap-ecc-cliff-and-half-of-customers-still-havent-moved/
+    status: confirmed
+  - item: Mainstream maintenance ends for PI/PO 7.5
+    product: SAP Process Orchestration 7.5
+    date: "2027-12-31"
+    kind: end_of_mainstream_maintenance
+    source: https://leverx.com/en-gb/blog/sap-pi-po-to-integration-suite-migration-uk
+    status: confirmed
+  - item: Optional extended maintenance ends for PI/PO 7.5
+    product: SAP Process Orchestration 7.5
+    date: "2030-12-31"
+    kind: end_of_extended_maintenance
+    source: https://leverx.com/en-gb/blog/sap-pi-po-to-integration-suite-migration-uk
+    status: confirmed
+  - item: Mainstream maintenance ends for BW 7.5
+    product: SAP BW 7.5
+    date: "2027-12-31"
+    kind: end_of_mainstream_maintenance
+    source: https://www.riministreet.com/blog/sap-end-of-mainstream-maintenance-deadlines-are-looming-for-gts-bobj-bpc-bw-hybris/
+    status: confirmed
+  - item: SAP ends third-party database resale/support and Java support for Business Suite 7
+    product: SAP Business Suite 7 on third-party databases
+    date: "2030-12-31"
+    kind: end_of_extended_maintenance
+    source: https://sapinsider.org/blogs/sap-sets-2030-cutoff-for-third-party-database-and-java-support/
+    status: confirmed
+  - item: ERP private edition transition option ends (selected RISE customers)
+    product: SAP ERP, private edition, transition option
+    date: "2033-12"
+    kind: end_of_extended_maintenance
+    source: https://sapinsider.org/blogs/what-erp-support-deadlines-actually-mean-for-companies/
+    status: confirmed

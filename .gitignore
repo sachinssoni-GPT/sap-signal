@@ -1,0 +1,27 @@
+# secrets and local environments
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Windows / editor junk
+*:Zone.Identifier
+*.swp
+*.bak
+
+# run reports are uploaded as GitHub Actions artifacts instead
+reports/*
+!reports/.gitkeep
+
+# site build output
+site/node_modules/
+site/dist/
+site/.astro/
+approval-worker/node_modules/
+approval-worker/.wrangler/
+
+# NOTE: content/ (drafts, published, rejected) and data/editorial.db ARE committed on purpose:
+# GitHub Actions runs are stateless, so git is the pipeline's memory (dedupe, history, predictions).
+*.save*

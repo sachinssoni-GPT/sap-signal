@@ -1,0 +1,13 @@
+name = "sap-signal-approval"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# Approval buttons only: no cron triggers (the weekly run and reminders use GitHub's own schedule).
+
+[vars]
+# owner/repo that holds the SAP Signal pipeline
+GITHUB_REPO = "sachinssoni-GPT/sap-signal"
+
+# Secrets (set with `npx wrangler secret put <NAME>`, never commit them):
+#   APPROVAL_SECRET  same value as the GitHub Actions secret APPROVAL_SECRET (a NEW one, not Undercurrent's)
+#   GITHUB_TOKEN     fine-grained PAT, the sap-signal repo only, permission "Contents: Read and write"
