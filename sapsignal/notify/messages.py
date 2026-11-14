@@ -51,6 +51,14 @@ def _links(edition_id: str) -> dict[str, str]:
     return {act: decision_link(url, act, edition_id, ttl) for act in ("approve", "reject", "regenerate")}
 
 
+def _mail_check(results: list[str]) -> list[str]:
+    bad = [r for r in results if r.startswith("email FAILED")]
+    if bad:
+        results.append(send_telegram("Email could not be sent: " + html.escape(bad[0][:300])
+                                     + "\nEverything is still here on Telegram."))
+    return results
+
+
 def _blocking(ed) -> list[str]:
     out = [f"{c.name}: {c.detail}" for c in ed.quality.checks if not c.passed and c.severity == "block"]
     return out + [w for w in ed.warnings if w.startswith("BLOCKING")]
@@ -113,7 +121,7 @@ Links expire in {get_config().get('approval', {}).get('link_ttl_hours', 72)}h.</
     if gh:
         rows.append([("Read draft on GitHub", gh)])
     results.append(send_telegram(tg, rows))
-    return results
+    return _mail_check(results)
 
 
 # ------------------------------------------------------------------ approved: the Tuesday kit
@@ -144,7 +152,7 @@ Cover image and carousel are attached too.</p>
     results.append(send_telegram(t["title"], html=False))
     results.append(send_telegram("<b>Share post</b> (goes with the edition)"))
     results.append(send_telegram(t["share"], html=False))
-    return results
+    return _mail_check(results)
 
 
 def remind(folder: Path, day: str) -> list[str]:

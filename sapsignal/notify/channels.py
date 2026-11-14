@@ -18,13 +18,30 @@ def email_configured() -> bool:
     return all(os.environ.get(k) for k in ("SMTP_USER", "SMTP_PASSWORD", "EMAIL_TO"))
 
 
+def _clean(value: str) -> str:
+    """Secrets pasted from a .env line often keep quotes or a trailing newline; Gmail app passwords are
+    shown with spaces. Strip all of that so the login gets the bare value."""
+    v = (value or "").strip().strip('"').strip("'").strip()
+    return v
+
+
 def send_email(subject: str, html: str, text: str, attachments: list | None = None) -> str:
+    """Never raises: a mail problem must not stop the Telegram half of a notification."""
+    try:
+        return _send_email(subject, html, text, attachments)
+    except Exception as exc:
+        hint = (" (check the SMTP_USER / SMTP_PASSWORD secrets: the Gmail App Password, 16 letters, no quotes)"
+                if isinstance(exc, smtplib.SMTPException) else "")
+        return f"email FAILED: {type(exc).__name__}: {exc}{hint}"
+
+
+def _send_email(subject: str, html: str, text: str, attachments: list | None = None) -> str:
     if not email_configured():
         return "email skipped: SMTP_USER / SMTP_PASSWORD / EMAIL_TO not set"
     msg = EmailMessage()
     msg["Subject"] = subject
-    msg["From"] = os.environ.get("EMAIL_FROM") or os.environ["SMTP_USER"]
-    msg["To"] = os.environ["EMAIL_TO"]
+    msg["From"] = _clean(os.environ.get("EMAIL_FROM") or os.environ["SMTP_USER"])
+    msg["To"] = _clean(os.environ["EMAIL_TO"])
     msg.set_content(text)
     msg.add_alternative(html, subtype="html")
     types = {".png": ("image", "png"), ".pdf": ("application", "pdf"), ".html": ("text", "html")}
@@ -38,12 +55,12 @@ def send_email(subject: str, html: str, text: str, attachments: list | None = No
     ctx = ssl.create_default_context()
     if port == 465:
         with smtplib.SMTP_SSL(host, port, context=ctx, timeout=30) as s:
-            s.login(os.environ["SMTP_USER"], os.environ["SMTP_PASSWORD"])
+            s.login(_clean(os.environ["SMTP_USER"]), _clean(os.environ["SMTP_PASSWORD"]).replace(" ", ""))
             s.send_message(msg)
     else:
         with smtplib.SMTP(host, port, timeout=30) as s:
             s.starttls(context=ctx)
-            s.login(os.environ["SMTP_USER"], os.environ["SMTP_PASSWORD"])
+            s.login(_clean(os.environ["SMTP_USER"]), _clean(os.environ["SMTP_PASSWORD"]).replace(" ", ""))
             s.send_message(msg)
     return f"email sent to {os.environ['EMAIL_TO']}"
 

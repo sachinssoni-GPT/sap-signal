@@ -116,3 +116,22 @@ def test_control_panel_sends_long_lived_signed_run_and_notes_buttons(monkeypatch
         assert q["action"] == act and int(q["exp"]) > time.time() + 300 * 86400
         want = hmac.new(b"s" * 40, f"{act}:{q['date']}:{q['exp']}".encode(), hashlib.sha256).hexdigest()
         assert q["sig"] == want                          # what the Worker verifies
+
+
+def test_a_mail_failure_never_stops_telegram(monkeypatch):
+    import smtplib
+    from sapsignal.notify import channels
+    for k, v in {"SMTP_USER": '"me@gmail.com"', "SMTP_PASSWORD": "'abcd efgh ijkl mnop'\n", "EMAIL_TO": "me@gmail.com"}.items():
+        monkeypatch.setenv(k, v)
+    seen = {}
+
+    class Boom:
+        def __init__(self, *a, **k): pass
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def login(self, user, pw):
+            seen["login"] = (user, pw)
+            raise smtplib.SMTPServerDisconnected("Connection unexpectedly closed")
+    monkeypatch.setattr(channels.smtplib, "SMTP_SSL", Boom)
+    out = channels.send_email("s", "<p>h</p>", "t")
+    assert out.startswith("email FAILED") and seen["login"] == ("me@gmail.com", "abcdefghijklmnop")

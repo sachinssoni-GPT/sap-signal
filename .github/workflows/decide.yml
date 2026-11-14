@@ -10,7 +10,7 @@ on:
         required: true
       decision:
         type: choice
-        options: [approve, reject]
+        options: [approve, reject, resend]   # resend = send an approved issue's LinkedIn kit again
         default: approve
       reason:
         description: "Reason (for reject)"
@@ -50,6 +50,7 @@ jobs:
           case "$DECISION" in
             sig-approve|approve) python main.py approve "$EDITION" --notify ;;
             sig-reject|reject)   python main.py reject "$EDITION" --reason "$REASON" --notify ;;
+            resend)              python main.py notify published --edition "$EDITION" ;;
             *) echo "unknown decision: $DECISION"; exit 1 ;;
           esac
 
