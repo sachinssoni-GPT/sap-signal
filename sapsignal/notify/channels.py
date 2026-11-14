@@ -14,6 +14,38 @@ from email.message import EmailMessage
 import requests
 
 
+
+class _Failed:
+    ok, status_code, text = False, 0, ""
+
+    def __init__(self, err: str):
+        self.text = err
+
+    def json(self):
+        return {}
+
+
+def _tg_post(url: str, files=None, **kwargs):
+    """POST to Telegram with retries: the runner's connection to Telegram sometimes resets mid-handshake.
+    Never raises; a final failure comes back as a response with ok=False."""
+    import time
+    err = ""
+    for attempt in range(4):
+        try:
+            if files:
+                for f in files.values():          # rewind file handles before a retry
+                    fh = f[1] if isinstance(f, tuple) else f
+                    if hasattr(fh, "seek"):
+                        fh.seek(0)
+            r = requests.post(url, files=files, timeout=kwargs.pop("timeout", 60) if attempt == 0 else 90, **kwargs)
+            if r.status_code < 500 and r.status_code != 429:
+                return r
+            err = f"HTTP {r.status_code} {r.text[:200]}"
+        except requests.RequestException as exc:
+            err = f"{type(exc).__name__}: {exc}"[:300]
+        time.sleep(3 * (attempt + 1))
+    return _Failed(err)
+
 def email_configured() -> bool:
     return all(os.environ.get(k) for k in ("SMTP_USER", "SMTP_PASSWORD", "EMAIL_TO"))
 
@@ -79,7 +111,7 @@ def send_telegram(text: str, buttons: list[list[tuple[str, str]]] | None = None,
         body["parse_mode"] = "HTML"
     if buttons:
         body["reply_markup"] = {"inline_keyboard": [[{"text": t, "url": u} for t, u in row] for row in buttons]}
-    r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMessage",
+    r = _tg_post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMessage",
                       json=body, timeout=30)
     if not r.ok:
         return f"telegram failed: HTTP {r.status_code} {r.text[:200]}"
@@ -94,7 +126,7 @@ def send_telegram_photo(path, caption: str = "") -> str:
     if not path.exists():
         return f"telegram photo skipped: {path.name} not found"
     with open(path, "rb") as f:
-        r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendPhoto",
+        r = _tg_post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendPhoto",
                           data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "caption": caption[:1000]},
                           files={"photo": (path.name, f, "image/png")}, timeout=60)
     return "telegram photo sent" if r.ok else f"telegram photo failed: HTTP {r.status_code} {r.text[:200]}"
@@ -118,7 +150,7 @@ def send_telegram_album(paths, caption: str = "", numbered: bool = False) -> str
             item["caption"] = text
         media.append(item)
         files[f"f{i}"] = (p.name, p.read_bytes(), "image/png")
-    r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMediaGroup",
+    r = _tg_post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMediaGroup",
                       data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "media": _json.dumps(media)},
                       files=files, timeout=120)
     return "telegram album sent" if r.ok else f"telegram album failed: HTTP {r.status_code} {r.text[:200]}"
@@ -134,7 +166,7 @@ def send_telegram_document(path, caption: str = "") -> str:
     mime = {".pdf": "application/pdf", ".html": "text/html", ".png": "image/png"}.get(path.suffix.lower(),
                                                                                        "application/octet-stream")
     with open(path, "rb") as f:
-        r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendDocument",
+        r = _tg_post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendDocument",
                           data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "caption": caption[:1000]},
                           files={"document": (path.name, f, mime)}, timeout=120)
     return "telegram document sent" if r.ok else f"telegram document failed: HTTP {r.status_code} {r.text[:200]}"

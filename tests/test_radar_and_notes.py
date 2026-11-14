@@ -135,3 +135,27 @@ def test_a_mail_failure_never_stops_telegram(monkeypatch):
     monkeypatch.setattr(channels.smtplib, "SMTP_SSL", Boom)
     out = channels.send_email("s", "<p>h</p>", "t")
     assert out.startswith("email FAILED") and seen["login"] == ("me@gmail.com", "abcdefghijklmnop")
+
+
+def test_telegram_retries_a_reset_connection_and_never_raises(monkeypatch, tmp_path):
+    import requests
+    from sapsignal.notify import channels
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "t")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "1")
+    monkeypatch.setattr("time.sleep", lambda s: None)
+    calls = []
+
+    class Ok:
+        ok, status_code, text = True, 200, ""
+        def json(self): return {"ok": True}
+
+    def post(url, **k):
+        calls.append(url)
+        if len(calls) < 3:
+            raise requests.ConnectionError("Connection reset by peer")
+        return Ok()
+    monkeypatch.setattr(channels.requests, "post", post)
+    f = tmp_path / "a.html"; f.write_text("<p>x</p>")
+    assert channels.send_telegram_document(f, "c") == "telegram document sent" and len(calls) == 3
+    monkeypatch.setattr(channels.requests, "post", lambda *a, **k: (_ for _ in ()).throw(requests.ConnectionError("down")))
+    assert "failed" in channels.send_telegram_document(f, "c")
