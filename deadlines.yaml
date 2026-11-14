@@ -48,9 +48,3 @@ rows:
     kind: end_of_extended_maintenance
     source: https://sapinsider.org/blogs/what-erp-support-deadlines-actually-mean-for-companies/
     status: confirmed
-  - item: End of extended maintenance
-    product: SAP Business Suite 7
-    date: '2030-12-31'
-    kind: end_of_extended_maintenance
-    source: https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/
-    status: new
