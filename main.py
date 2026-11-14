@@ -185,6 +185,13 @@ def cmd_approve(args) -> int:
     db.init_db()
     src = _folder("drafts", args.edition)
     if not (src / "edition.json").exists():
+        done = _folder("published", args.edition)
+        if (done / "edition.json").exists():          # approved already: just send the kit again
+            print(f"Issue {args.edition} is already approved; sending its LinkedIn kit again.")
+            if args.notify:
+                from sapsignal.notify.messages import notify_published
+                print(*notify_published(done), sep="\n")
+            return 0
         print(f"No draft issue {args.edition}.")
         return 1
     banned = find_banned(all_output_text(src))
