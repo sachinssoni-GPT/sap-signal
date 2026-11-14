@@ -9,8 +9,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 from ..config import PROJECT_DIR
 
-# A calm, enterprise palette: deep teal accent on warm paper.
-PAPER, INK, MUTED, ACCENT, RULE = "#fbfaf6", "#17202a", "#5f6b75", "#0b6e69", "#dfe3e1"
+# Brand palette (matches assets/brand): white type on deep navy, electric cyan accents, gold highlights.
+PAPER, INK, MUTED, ACCENT, RULE = "#08183a", "#ffffff", "#a9b8d0", "#00d4ff", "#22396b"
+GOLD, BLUE = "#ffb800", "#0a6cff"
 FONTS = PROJECT_DIR / "assets" / "fonts"
 
 

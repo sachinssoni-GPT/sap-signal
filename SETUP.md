@@ -96,5 +96,5 @@ The bot sends a message with **Build a new draft now** and **Collect my notes no
 The buttons are signed and work for a year; run the command again for fresh ones.
 
 ## Brand
-`assets/brand/`: `logo-teal.png` (LinkedIn newsletter logo), `logo-light.png`, `logo-dark.png`, `wordmark.png`
+`assets/brand/`: `logo-navy.png` (LinkedIn newsletter logo), `logo-white.png`, `wordmark-navy.png`, `wordmark-white.png`
 (headers, banners) and `mark.png` (used on the cover and carousel).

@@ -198,9 +198,9 @@ def render_issue_md(ed: Edition, take_report: VerificationReport | None) -> str:
 
 _HTML = """<!doctype html><html><head><meta charset="utf-8"><title>{title}</title>
 <style>body{{font-family:Georgia,serif;max-width:720px;margin:32px auto;padding:0 16px;color:#17202a;line-height:1.6}}
-.how{{font-family:Helvetica,Arial,sans-serif;background:#eef6f5;border:1px solid #cfe5e3;padding:12px 16px;border-radius:8px;
+.how{{font-family:Helvetica,Arial,sans-serif;background:#eef4ff;border:1px solid #c9dcff;padding:12px 16px;border-radius:8px;
 font-size:14px;margin-bottom:28px}} h1{{font-family:Helvetica,Arial,sans-serif}} h2{{font-family:Helvetica,Arial,sans-serif;
-border-top:1px solid #dfe3e1;padding-top:18px}} a{{color:#0b6e69}}</style></head><body>
+border-top:1px solid #dfe3e1;padding-top:18px}} a{{color:#0a6cff}}</style></head><body>
 <div class="how"><b>How to post:</b> LinkedIn &rarr; Write article &rarr; choose the newsletter. Paste the title and
 subtitle from <i>1-tuesday-title.txt</i>, upload <i>1-tuesday-cover.png</i> as the cover, then select everything
 <b>below the line</b> on this page (from "{first}" to the end), copy, and paste into the article body.

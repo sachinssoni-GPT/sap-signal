@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from ..schemas import Edition
-from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
+from .card import ACCENT, GOLD, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
 
 W, H = 1280, 720
 
@@ -30,7 +30,7 @@ def render_cover(ed: Edition, publication: dict, out: Path) -> Path:
     img = Image.new("RGB", (W, H), PAPER)
     d = ImageDraw.Draw(img)
     left, right = 96, W - 96
-    d.rectangle([0, 0, W, 14], fill=ACCENT)
+    d.rectangle([0, 0, W, 14], fill=GOLD)
     brand = _font("Inter-SemiBold.ttf", 30)
     x = left
     mk = brand_mark(54)
@@ -44,7 +44,7 @@ def render_cover(ed: Edition, publication: dict, out: Path) -> Path:
     when = f"ISSUE {ed.issue_no}  ·  " + date.fromisoformat(ed.edition_date).strftime("%-d %b %Y").upper()
     d.text((right - d.textlength(when, font=small), 74), when, font=small, fill=MUTED)
     kicker = "THE ARCHITECT'S TAKE" if ed.take is not None else "THIS WEEK'S SIGNAL"
-    d.text((left, 176), kicker, font=_font("Inter-SemiBold.ttf", 28), fill=ACCENT)
+    d.text((left, 176), kicker, font=_font("Inter-SemiBold.ttf", 28), fill=GOLD)
     f, lines = _fit(d, ed.title, right - left, 330)
     y = 226
     for ln in lines:

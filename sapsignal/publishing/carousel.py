@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw
 
 from .. import deadlines as dl
 from ..schemas import Edition
-from .card import ACCENT, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
+from .card import ACCENT, GOLD, INK, MUTED, PAPER, RULE, _font, _wrap, brand_mark, safe_text
 
 W, H = 1080, 1350
 L, R = 96, W - 96
@@ -45,7 +45,7 @@ def _block(d, lines, font, x, y, fill, line=1.2):
 def _frame(ed: Edition, publication: dict, page: int, total: int):
     img = Image.new("RGB", (W, H), PAPER)
     d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, W, 14], fill=ACCENT)
+    d.rectangle([0, 0, W, 14], fill=GOLD)
     brand = _font("Inter-SemiBold.ttf", 30)
     x = L
     mk = brand_mark(54)
@@ -107,8 +107,8 @@ def render_carousel(ed: Edition, publication: dict, title: str, radar: list[dict
             d.text((L, y), when, font=datef, fill=INK)
             if r.get("status") == "new":
                 bx = L + d.textlength(when, font=datef) + 18
-                d.rounded_rectangle([bx, y + 4, bx + 86, y + 40], radius=8, fill=ACCENT)
-                d.text((bx + 14, y + 7), "NEW", font=_font("Inter-SemiBold.ttf", 24), fill="#ffffff")
+                d.rounded_rectangle([bx, y + 4, bx + 86, y + 40], radius=8, fill=GOLD)
+                d.text((bx + 14, y + 7), "NEW", font=_font("Inter-SemiBold.ttf", 24), fill=PAPER)
             days = dl.days_until(r["date"], today)
             if days is not None:
                 from .edition import countdown
@@ -135,7 +135,7 @@ def render_carousel(ed: Edition, publication: dict, title: str, radar: list[dict
         d.text((L, y), label, font=_font("Inter-SemiBold.ttf", 36), fill=ACCENT)
         y = _block(d, lines, f, L, y + 76, INK, 1.15)
         if bl:
-            d.line([L, y + 30, L + 120, y + 30], fill=ACCENT, width=4)
+            d.line([L, y + 30, L + 120, y + 30], fill=GOLD, width=4)
             _block(d, bl, fb, L, y + 70, MUTED, 1.4)
         imgs.append(img)
 

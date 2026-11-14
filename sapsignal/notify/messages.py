@@ -24,8 +24,8 @@ from .channels import send_email, send_telegram, send_telegram_document, send_te
 from .signing import decision_link
 
 _CSS = ("body{font-family:Georgia,serif;max-width:680px;margin:auto;color:#17202a;line-height:1.55}"
-        "h1,h2,h3{font-family:Helvetica,Arial,sans-serif}a{color:#0b6e69}"
-        ".bar{background:#eef6f5;border:1px solid #cfe5e3;padding:16px;border-radius:8px;margin:16px 0}"
+        "h1,h2,h3{font-family:Helvetica,Arial,sans-serif}a{color:#0a6cff}"
+        ".bar{background:#eef4ff;border:1px solid #c9dcff;padding:16px;border-radius:8px;margin:16px 0}"
         ".btn{display:inline-block;padding:10px 18px;margin:4px 8px 4px 0;border-radius:6px;color:#fff!important;"
         "text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-weight:bold}"
         ".ok{background:#1f7a3a}.no{background:#a62b2b}.re{background:#555}"

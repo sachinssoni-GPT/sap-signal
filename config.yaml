@@ -3,7 +3,7 @@
 # Working title: change `publication.name` once you've picked the final name (check SAP's trademark
 # guidelines before putting "SAP" first in a product name).
 publication:
-  name: "The SAP Signal"
+  name: "SAP Signal"
   tagline: "What changed in SAP this week, what it breaks, and what to do about it."
   author: "Sachin"
   timezone: "Asia/Kolkata"
