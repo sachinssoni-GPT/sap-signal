@@ -36,6 +36,18 @@ edition:
     min_words: 400
     max_words: 650
     avoid_recent_formats: 2
+    # The Take (and so the week's Signal) goes to the story that best fits the FIRST topic below that
+    # any of the week's stories fits. Your Telegram/notes always win over this list.
+    prefer_topics:
+      - Application architecture in SAP landscapes
+      - Enterprise architecture with SAP at the core (governance, roadmaps, landscape decisions)
+      - Integration (Integration Suite, PI/PO, events, APIs)
+      - AI in SAP (Joule, agents, AI services in BTP)
+      - Clean Core and extensibility
+      - ABAP (ABAP Cloud, RAP, custom code)
+      - Migration to S/4HANA (ECC exit, RISE, GROW)
+    # Never the Take (they still appear as news items). Words matched in the headline, case-insensitive.
+    avoid_topics: ["security patch", "vulnerab", "CVE-", "zero-day", "exploit", "security note", "patch day"]
   radar_rows: 8            # upcoming deadlines shown in the issue and the carousel
 
 voice_file: voice.md       # your voice profile + sample posts; shapes the Take and the LinkedIn posts
@@ -273,6 +285,10 @@ paths:
   deadlines: deadlines.yaml
 
 verbose_agents: false
+
+# Outlets with the same owner count as ONE outlet when judging how widely a story is carried.
+source_owners:
+  wellesley: [erp.today, sapinsider.org, masteringsap.com]
 
 source_perspectives:
   sap_official: [sap.com, news.sap.com, help.sap.com]

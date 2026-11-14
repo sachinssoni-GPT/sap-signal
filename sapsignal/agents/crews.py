@@ -407,7 +407,7 @@ OPENINGS = ("a single striking fact, date or number", "a sharp question the piec
 
 
 def run_plan_take(items: list[dict], recent_formats: list[str], recent_titles: list[str],
-                  notes: str = "") -> TakePlan:
+                  notes: str = "", prefer_topics: list[str] | None = None) -> TakePlan:
     """Pick the week's Signal (the lead) and the format of the Take, avoiding recently used formats.
     When the author left notes, the Take follows what the notes are about."""
     agent = Agent(
@@ -421,7 +421,7 @@ def run_plan_take(items: list[dict], recent_formats: list[str], recent_titles: l
         description=("THIS WEEK'S BRIEFING (JSON):\n{items}\n\nFORMATS:\n{formats}\n\n"
                      "Formats used in the most recent issues (do NOT reuse these): {recent_formats}\n"
                      "Recent Take titles (don't repeat their subject unless it has clearly moved on):\n"
-                     "{recent_titles}\n\n{notes}"
+                     "{recent_titles}\n\n{notes}{prefer}"
                      "Pick story_id (a candidate_id from the briefing), the format that best fits it, related_ids "
                      "(1-2 other candidate_ids about DIFFERENT events, only for connecting_dots; else empty), the "
                      "angle (the one question or argument the Take answers), and intro: one line (max 30 words) "
@@ -432,6 +432,12 @@ def run_plan_take(items: list[dict], recent_formats: list[str], recent_titles: l
         "formats": "\n".join(f"- {k}: {v}" for k, v in FORMAT_GUIDE.items()),
         "recent_formats": ", ".join(recent_formats) or "(none)",
         "recent_titles": "\n".join(f"- {t}" for t in recent_titles) or "- (none)",
+        "prefer": _safe(("THE AUTHOR'S TOPICS, IN ORDER OF PREFERENCE (the Take is his column, so it must sit "
+                         "where he is expert). Unless his notes point elsewhere, choose the story that fits the "
+                         "EARLIEST topic in this list that any story genuinely fits, even if another story is "
+                         "bigger news; a story that fits none of them should be the Take only when nothing "
+                         "fits:\n" + "\n".join(f"{i}. {t}" for i, t in enumerate(prefer_topics, 1)) + "\n\n")
+                        if prefer_topics else ""),
         "notes": (("THE AUTHOR'S OWN NOTES FOR THIS WEEK (pick the story they are about, if it is in the "
                    "briefing, and an angle that carries their point):\n" + _safe(notes) + "\n\n") if notes else "")})
     return _structured_output(out, TakePlan, "take plan")

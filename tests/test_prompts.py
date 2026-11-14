@@ -44,7 +44,7 @@ def test_all_prompts_fill_their_placeholders(checked):
     c = Candidate(id="E1", title="SAP {x}", url="https://news.sap.com/a", section="ecc_exit")
     crews.run_triage_events("E1 | 1 outlets | SAP {odd} braces", 5)
     crews.run_story_brief(c, "article with {braces}", c.url, ["theregister.com"])
-    crews.run_plan_take([{"candidate_id": "E1"}], [], [], notes="my {note}")
+    crews.run_plan_take([{"candidate_id": "E1"}], [], [], notes="my {note}", prefer_topics=["Integration {x}"])
     crews.run_plan_take([{"candidate_id": "E1"}], ["contrarian"], ["Old title"])
     crews.run_take(TakePlan(story_id="E1", format="long_view", angle="a"), "T", rep, "a fact", notes="mine")
     crews.run_take(TakePlan(story_id="E1", format="contrarian", angle="a"), "T", rep, "a fact", feedback="fix")

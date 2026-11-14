@@ -132,6 +132,22 @@ def issue_number() -> int:
     return len(list(path_for("published").glob("*/edition.json"))) + 1
 
 
+def distinct_owners(domains: list[str]) -> int:
+    """How many independent outlets: domains with the same owner (config source_owners) count once."""
+    owner = {d: g for g, ds in ((get_config().get("source_owners") or {}).items()) for d in (ds or [])}
+    return len({owner.get(d, d) for d in domains})
+
+
+def take_prefs() -> tuple[list[str], list[str]]:
+    tc = (edition_cfg().get("take") or {})
+    return [str(t) for t in tc.get("prefer_topics") or []], [str(t).lower() for t in tc.get("avoid_topics") or []]
+
+
+def avoided(headline: str, avoid: list[str]) -> bool:
+    h = (headline or "").lower()
+    return any(a and a in h for a in avoid)
+
+
 def _same_event(a: str, b: str) -> bool:
     from .research.events import overlap, words
     wa, wb = words(a), words(b)
@@ -214,7 +230,7 @@ class WeeklyIssueFlow(Flow[IssueState]):
             first = order[0]
             cands.append(Candidate(id=ev.id, title=p.title or ev.title, url=first, related_urls=order[1:8],
                                    relevance=p.significance, section=p.section, summary=p.why,
-                                   outlets=len(ev.outlets), outlet_names=ev.outlets[:10],
+                                   outlets=distinct_owners(ev.outlets), outlet_names=ev.outlets[:10],
                                    source_name=pubs.get(first, registrable_domain(first)),
                                    published=ev.latest or None, topic=p.section))
         cands = self._dedupe_picks(cands)
@@ -242,7 +258,7 @@ class WeeklyIssueFlow(Flow[IssueState]):
                 continue
             twin.related_urls += [u for u in [c.url, *c.related_urls] if u not in twin.related_urls][:6]
             twin.outlet_names += [o for o in c.outlet_names if o not in twin.outlet_names]
-            twin.outlets = len(twin.outlet_names)
+            twin.outlets = distinct_owners(twin.outlet_names)
             self.state.diagnostics.append(f"{c.id}: same event as {twin.id}; merged")
         return kept
 
@@ -353,17 +369,24 @@ class WeeklyIssueFlow(Flow[IssueState]):
         tc = (edition_cfg().get("take") or {})
         recent = recent_issues(int(tc.get("avoid_recent_formats", 2)))
         recent_formats = [e["format"] for e in recent if e["format"]]
+        prefer, avoid = take_prefs()
+        eligible = [cid for cid in s.selected_ids if s.notes or not avoided(s.briefs[cid].headline, avoid)]
+        if not eligible:
+            s.diagnostics.append("take: every story this week is on an avoided topic; no Take")
+            self._after_take()
+            return
         items = [{"candidate_id": cid, "beat": by_id[cid].section, "headline": s.briefs[cid].headline,
-                  "summary": s.briefs[cid].summary, "outlets": by_id[cid].outlets} for cid in s.selected_ids]
+                  "summary": s.briefs[cid].summary, "outlets": by_id[cid].outlets} for cid in eligible]
         try:
             plan = with_model_fallback(crews.run_plan_take, items, recent_formats, [e["title"] for e in recent],
-                                       s.notes, diag=s.diagnostics)
+                                       s.notes, prefer, diag=s.diagnostics)
         except Exception as exc:
             s.diagnostics.append(f"take plan failed: {type(exc).__name__}: {exc}"[:300])
             self._after_take()
             return
-        if plan.story_id not in s.selected_ids:
-            plan.story_id = s.selected_ids[0]
+        if plan.story_id not in eligible:
+            s.diagnostics.append(f"take: planner picked {plan.story_id} (not eligible); using {eligible[0]}")
+            plan.story_id = eligible[0]
         plan.related_ids = [r for r in plan.related_ids if r in s.selected_ids and r != plan.story_id][:2]
         if plan.format in recent_formats:
             fresh = [f for f in TAKE_FORMATS if f not in recent_formats and (f != "connecting_dots" or plan.related_ids)]

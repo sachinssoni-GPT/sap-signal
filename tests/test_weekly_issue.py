@@ -85,8 +85,8 @@ def world(tmp_path, monkeypatch):
     monkeypatch.setattr(crews, "run_verification", lambda c: (_ for _ in ()).throw(RuntimeError("offline")))
     seen = {}
 
-    def plan(items, recent_formats, recent_titles, notes=""):
-        seen["plan_notes"] = notes
+    def plan(items, recent_formats, recent_titles, notes="", prefer_topics=None):
+        seen["plan_notes"], seen["plan_items"], seen["prefer"] = notes, items, prefer_topics
         return TakePlan(story_id=items[0]["candidate_id"], format="decision_guide", angle="Move now or wait?",
                         intro="A deadline week.")
     monkeypatch.setattr(crews, "run_plan_take", plan)
@@ -188,3 +188,29 @@ def test_reminders_send_the_right_piece(world, monkeypatch):
     sent.clear()
     main.cmd_remind(_args(day="saturday"))
     assert ("doc", "3-saturday-carousel.pdf") in sent
+
+
+def test_avoided_topics_never_get_the_take_without_notes(world):
+    # make the top story a security patch story
+    orig = crews.run_triage_events
+    def triage(rows, max_picks, strict=False):
+        r = orig(rows, max_picks)
+        r.picks[0].title = "SAP patches four CVE-rated vulnerabilities on Patch Day"
+        return r
+    crews.run_triage_events = triage
+    try:
+        status, eid = main._run(_args())
+    finally:
+        crews.run_triage_events = orig
+    assert status == "draft_ready"
+    ids = [i["headline"] for i in world["seen"]["plan_items"]]
+    assert all("Patch Day" not in h for h in ids) and world["seen"]["prefer"][0].startswith("Application architecture")
+    ed = json.loads((world["root"] / "content" / "drafts" / eid / "edition.json").read_text())
+    assert ed["stories"][0]["headline"] != "SAP patches four CVE-rated vulnerabilities on Patch Day"
+    assert any("Patch Day" in s["headline"] for s in ed["stories"])          # still in the issue as news
+
+
+def test_outlets_with_one_owner_count_once():
+    from sapsignal.flow import distinct_owners
+    assert distinct_owners(["erp.today", "sapinsider.org", "theregister.com"]) == 2
+    assert distinct_owners(["erp.today", "sapinsider.org"]) == 1
