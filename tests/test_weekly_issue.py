@@ -138,6 +138,7 @@ def test_a_full_week_produces_the_linkedin_kit_and_a_verified_radar(world):
     issue = (folder / "issue.md").read_text()
     assert "## This week's Signal" in issue and "## The Architect's Take" in issue and "## Deadline Radar" in issue
     assert "[C1]" not in issue and "[1]" in issue                         # citations renumbered for LinkedIn
+    assert "Views expressed are my own and do not represent my employer." in issue
     assert "**NEW**" in issue and "Mainstream maintenance ends for ECC 6.0" in issue
     li = folder / "linkedin"
     for f in ("1-tuesday-newsletter.html", "1-tuesday-title.txt", "1-tuesday-cover.png", "1-tuesday-share-post.txt",

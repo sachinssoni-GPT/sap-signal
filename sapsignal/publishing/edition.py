@@ -188,8 +188,10 @@ def render_issue_md(ed: Edition, take_report: VerificationReport | None) -> str:
             link = " · ".join(f"[{o}]({u})" for o, u in links[:2])
             lines.append(f"{i}. {text}" + (f" ({link})" if link else ""))
         lines.append("")
-    foot = f"*{name}* is curated and signed off by {author}. Public sources only; views are my own."
-    lines += ["---", "", foot]
+    foot = f"*{name}* is curated and signed off by {author}. Public sources only."
+    disclaimer = (get_config().get("publication", {}) or {}).get(
+        "disclaimer", "Views expressed are my own and do not represent my employer.")
+    lines += ["---", "", foot] + (["", f"*{disclaimer}*"] if disclaimer else [])
     li = _li_cfg()
     if li.get("signup_url"):
         lines += ["", f"{li.get('signup_offer', 'Get the free checklist')}: {li['signup_url']}"]

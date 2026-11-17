@@ -6,6 +6,7 @@ publication:
   name: "SAP Signal"
   tagline: "What changed in SAP this week, what it breaks, and what to do about it."
   author: "Sachin"
+  disclaimer: "Views expressed are my own and do not represent my employer."   # shown at the end of every issue
   timezone: "Asia/Kolkata"
 
 linkedin:
