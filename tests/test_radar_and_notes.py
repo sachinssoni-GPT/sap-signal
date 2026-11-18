@@ -159,3 +159,52 @@ def test_telegram_retries_a_reset_connection_and_never_raises(monkeypatch, tmp_p
     assert channels.send_telegram_document(f, "c") == "telegram document sent" and len(calls) == 3
     monkeypatch.setattr(channels.requests, "post", lambda *a, **k: (_ for _ in ()).throw(requests.ConnectionError("down")))
     assert "failed" in channels.send_telegram_document(f, "c")
+
+
+def test_lookalike_characters_never_glue_words_in_images_or_text():
+    from sapsignal.publishing.card import safe_text
+    from sapsignal.publishing.text import reader
+    from sapsignal.qa import check_text
+    t = "SAP maximum‑severity flaws and zero​width"
+    assert safe_text(t) == "SAP maximum-severity flaws and zerowidth".replace("zerowidth", "zerowidth")
+    assert reader(t) == "SAP maximum-severity flaws and zerowidth"
+    assert check_text("x", "fine text. Next sentence") == []
+    assert any("missing space" in i for i in check_text("x", "the patch.Customers must act"))
+    assert any("doubled word" in i for i in check_text("x", "apply the the notes"))
+    assert any("look-alike" in i for i in check_text("x", "maximum‑severity"))
+    assert check_text("x", "see https://erp.today/a.B and [x](https://a.b/C.d)") == []
+
+
+def test_ocr_flags_two_words_drawn_as_one(tmp_path):
+    import shutil
+    import pytest
+    if not shutil.which("tesseract"):
+        pytest.skip("tesseract not installed")
+    from PIL import Image, ImageDraw
+    from sapsignal.publishing.card import _font
+    from sapsignal.qa import check_image
+    for name, text in (("bad.png", "SAP maximumseverity flaws"), ("good.png", "SAP maximum-severity flaws")):
+        im = Image.new("RGB", (1280, 300), "#08183a")
+        ImageDraw.Draw(im).text((60, 100), text, font=_font("SourceSerif4-Bold.ttf", 72), fill="white")
+        im.save(tmp_path / name)
+    assert any("reads as one word" in i for i in check_image(tmp_path / "bad.png", ["SAP maximum-severity flaws"]))
+    assert check_image(tmp_path / "good.png", ["SAP maximum-severity flaws"]) == []
+
+
+def test_proofread_applies_only_small_exact_fixes(monkeypatch):
+    from sapsignal import qa
+    from sapsignal.agents import crews
+    from sapsignal.schemas import Edition, EditionStory, ProofIssue, ProofReport, QualityReport
+    ed = Edition(edition_date="2026-11-16", run_id="r", title="SAP patchs four flaws", description="d", lead_id="E1",
+                 stories=[EditionStory(rank=1, candidate_id="E1", headline="h", summary="Customers mustpatch now.",
+                                       why_it_matters="w", confidence="high")], quality=QualityReport(verdict="pass"))
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
+    monkeypatch.setattr(crews, "run_proofread", lambda fields: ProofReport(issues=[
+        ProofIssue(field="story.E1.summary", quote="mustpatch", fix="must patch", kind="missing_space"),
+        ProofIssue(field="issue.title", quote="patchs", fix="patches", kind="typo"),
+        ProofIssue(field="issue.title", quote="SAP patchs four flaws", fix="Rewrite the whole thing please",
+                   kind="other"),
+        ProofIssue(field="issue.title", quote="not in the text", fix="x", kind="typo")]))
+    ed, notes = qa.proofread(ed)
+    assert ed.stories[0].summary == "Customers must patch now." and ed.title == "SAP patches four flaws"
+    assert sum(n.startswith("QA fixed") for n in notes) == 2 and not any("not in the text" in n for n in notes)

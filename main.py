@@ -203,6 +203,16 @@ def cmd_approve(args) -> int:
             from sapsignal.notify.channels import send_telegram
             print(send_telegram(msg, html=False))
         return 2
+    from sapsignal import qa
+    qa_block = qa.blocking(src)
+    if qa_block and (get_config().get("qa", {}) or {}).get("block_approval_on_errors", True) and not args.force:
+        msg = (f"Not approved: issue {args.edition} has quality errors:\n- " + "\n- ".join(qa_block[:8])
+               + "\nPress Regenerate, or fix the text and approve again.")
+        print(msg)
+        if args.notify:
+            from sapsignal.notify.channels import send_telegram
+            print(send_telegram(msg, html=False))
+        return 2
     ed = set_status(src, "published")
     added = dl.merge(ed.deadlines_new)
     dst = _folder("published", args.edition)

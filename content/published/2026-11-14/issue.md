@@ -1,18 +1,18 @@
-*Four unauthenticated, maximum‑severity flaws this November mean you must treat ICM/Web Dispatcher, Gateway and SAML2 endpoints as compromised until proven otherwise.*
+*Four unauthenticated, maximum-severity flaws this November mean you must treat ICM/Web Dispatcher, Gateway and SAML2 endpoints as compromised until proven otherwise.*
 
 ## This week's Signal
 
-**SAP issues four maximum‑severity, unauthenticated flaws in November patch**
+**SAP issues four maximum-severity, unauthenticated flaws in November patch**
 
-The November 2026 Security Patch Day disclosed four maximum‑severity flaws, including two 10.0 CVSS bugs in ICM/Web Dispatcher (ICM2SHELL) and a Gateway PROXYGATE issue that can treat external actors as internal servers. A SAML2 service‑provider weakness can let unauthenticated attackers impersonate any user, and SAP’s bulletin lists dozens of notes and advisories to apply and verify.
+The November 2026 Security Patch Day disclosed four maximum-severity flaws, including two 10.0 CVSS bugs in ICM/Web Dispatcher (ICM2SHELL) and a Gateway PROXYGATE issue that can treat external actors as internal servers. A SAML2 service-provider weakness can let unauthenticated attackers impersonate any user, and SAP’s bulletin lists dozens of notes and advisories to apply and verify.
 
-**What it changes:** Shared connectivity components mean many landscapes can be exposed at once and remediation will require coordinated patching, configuration changes and follow‑up testing—raising operational risk and near‑term maintenance cost.
+**What it changes:** Shared connectivity components mean many landscapes can be exposed at once and remediation will require coordinated patching, configuration changes and follow-up testing—raising operational risk and near-term maintenance cost.
 
 Source: [ERP Today](https://erp.today/sap-security-patch-day-november-2026-shared-infrastructure/)
 
 ## The Architect's Take
 
-### Mapping November's SAP maximum‑severity flaws
+### Mapping November's SAP maximum-severity flaws
 
 *What it means for your landscape · How to find which systems, interfaces, custom code and contracts are exposed, what to patch first, and two immediate checks for Monday.*
 
@@ -22,25 +22,25 @@ You’re on a routine programme call — release windows, downstream test schedu
 
 Fact: SAP published four critical vulnerabilities this November affecting ICM, Web Dispatcher and Gateway; two ICM/Web Dispatcher flaws carry a 10.0 CVSS score (CVE-2026-76964 and CVE-2026-89126) [1], the Gateway issue Onapsis named PROXYGATE is CVE-2026-89103 [2], and a CSRF flaw rated 9.6 affects the administration interfaces in Web Dispatcher and ICM (CVE-2026-89119) [4]. GitHub advisories also cover SAP Cloud SDK packages and a sandbox project [5].
 
-My judgment: treat this like a live incident. Maximum‑severity, unauthenticated issues are the kind that shorten debate and lengthen incident logs.
+My judgment: treat this like a live incident. Maximum-severity, unauthenticated issues are the kind that shorten debate and lengthen incident logs.
 
 **Walk-your-landscape checklist — the order I’d run**
 
-Start at the edge. Check public-facing Web Dispatchers and ICM endpoints first: the two 10.0 CVSS flaws hit those components directly [1]. Any instance reachable from the internet (or poorly behind reverse proxies) is highest risk because the two CVSS‑10 issues are associated with unauthenticated impact in the bulletin context [1].
+Start at the edge. Check public-facing Web Dispatchers and ICM endpoints first: the two 10.0 CVSS flaws hit those components directly [1]. Any instance reachable from the internet (or poorly behind reverse proxies) is highest risk because the two CVSS-10 issues are associated with unauthenticated impact in the bulletin context [1].
 
-Next, enumerate SAP Gateway instances and their fronting devices. PROXYGATE (CVE-2026-89103) is reported to allow unauthenticated attackers to run code and take control — treat that as immediate lateral‑movement risk until isolated or patched [2] [3].
+Next, enumerate SAP Gateway instances and their fronting devices. PROXYGATE (CVE-2026-89103) is reported to allow unauthenticated attackers to run code and take control — treat that as immediate lateral-movement risk until isolated or patched [2] [3].
 
 Then map trust boundaries and administration paths. The CSRF issue affects admin interfaces and requires an administrator’s active session to exploit; identify which consoles are reachable from networks where admin sessions could originate [4].
 
 Follow the call chains: load balancers, reverse proxies, SSO gateways, API gateways, B2B endpoints and partner VPNs. A compromised dispatcher or Gateway is a pivot into backend ABAP processes and service accounts. Also list middleware that depends on SAP Cloud SDK packages referenced in the GitHub advisories — they may provide secondary exposure paths [5].
 
-Check custom code that parses HTTP headers, session cookies, or deserializes untrusted input. Flag any outsourced appliances, managed Web Dispatchers, or third‑party teams that hold admin credentials — they change your blast radius.
+Check custom code that parses HTTP headers, session cookies, or deserializes untrusted input. Flag any outsourced appliances, managed Web Dispatchers, or third-party teams that hold admin credentials — they change your blast radius.
 
 My judgment: patching is necessary, but the immediate priority is exposure mapping and containment so you don’t patch after an attacker already has a foothold.
 
 **What to patch first, and the two checks to run on Monday**
 
-Patch priority: 1) Public‑facing Web Dispatchers and ICM instances immediately — the two CVSS 10.0 flaws hit those components [1]. 2) Exposed SAP Gateway instances next — PROXYGATE allows code execution and full takeover if exploited [3]. 3) Harden admin consoles and session management because the CSRF flaw depends on active admin sessions [4].
+Patch priority: 1) Public-facing Web Dispatchers and ICM instances immediately — the two CVSS 10.0 flaws hit those components [1]. 2) Exposed SAP Gateway instances next — PROXYGATE allows code execution and full takeover if exploited [3]. 3) Harden admin consoles and session management because the CSRF flaw depends on active admin sessions [4].
 
 Two things to run on Monday (do them before tea):
 
@@ -48,7 +48,7 @@ Two things to run on Monday (do them before tea):
 • Tool examples: nmap and an HTTP probe. Run: nmap -Pn -p 80,443 --open -sV <target-range> and an HTTP title probe like: nmap -Pn -p 80,443 --script http-title <ip>. Then for each responsive host run: curl -k -I https://<host>/ and curl -k https://<host>/ -o /tmp/host.html to inspect for admin pages.
 • What you’re looking for: any Web Dispatcher, ICM or Gateway UI or login page reachable from the internet. Acceptance: zero reachable admin consoles from untrusted networks; otherwise block at the firewall or WAF and isolate the IP immediately. (Fact: these components are the ones affected in this bulletin) [1] [2] [4].
 
-2) Privileged‑session audit — concrete steps and acceptance criteria.
+2) Privileged-session audit — concrete steps and acceptance criteria.
 • Use your SAP admin tools (NWA/ABAP admin transactions such as SM04 or equivalent) to list active users and sessions that have admin privileges. Export sessions, note source IPs, and identify any remote admin sessions originating from untrusted networks.
 • Actions: terminate unnecessary admin sessions, force logoff for sessions from unknown IPs, and rotate service and admin credentials exposed to third parties. Acceptance: no active admin sessions from untrusted addresses; all rotated credentials validated and recorded.
 
@@ -82,9 +82,9 @@ Source: [SAP](https://news.sap.com/2026/11/sap-product-level-cloud-emissions-ene
 **3. SAP Business Suite 7: ECC maintenance ends; plan history retention**
 *ECC exit & S/4HANA*
 
-SAP sets mainstream maintenance for SAP Business Suite 7 to end at the close of 2027, with optional extended maintenance to the end of 2030 at "a premium of two percentage points on the maintenance basis". The migration approach determines which closed years stay in ECC or move to the target system; ensure cleared-item links, stored currency amounts, and custom Z‑reports are captured so audit trails remain readable.
+SAP sets mainstream maintenance for SAP Business Suite 7 to end at the close of 2027, with optional extended maintenance to the end of 2030 at "a premium of two percentage points on the maintenance basis". The migration approach determines which closed years stay in ECC or move to the target system; ensure cleared-item links, stored currency amounts, and custom Z-reports are captured so audit trails remain readable.
 
-**What it changes:** You must budget and assign an owner now for retaining and reconciling retained ECC history (cleared items, stored currency amounts, Z‑reports) or risk audit, tax and dispute costs later.
+**What it changes:** You must budget and assign an owner now for retaining and reconciling retained ECC history (cleared items, stored currency amounts, Z-reports) or risk audit, tax and dispute costs later.
 
 Source: [ERP Today](https://erp.today/sap-ecc-retirement-what-happens-to-the-data-left-behind/) · developing
 

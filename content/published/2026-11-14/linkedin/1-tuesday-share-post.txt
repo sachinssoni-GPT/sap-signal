@@ -1,5 +1,5 @@
-Four unauthenticated, maximum‑severity flaws.
+Four unauthenticated, maximum-severity flaws.
 
-This November SAP published four critical vulnerabilities affecting ICM, Web Dispatcher and Gateway — two of them carry a CVSS 10.0 and allow unauthenticated impact. Treat any public‑facing dispatcher, ICM or Gateway endpoint as compromised until you’ve proven otherwise.
+This November SAP published four critical vulnerabilities affecting ICM, Web Dispatcher and Gateway — two of them carry a CVSS 10.0 and allow unauthenticated impact. Treat any public-facing dispatcher, ICM or Gateway endpoint as compromised until you’ve proven otherwise.
 
-Run an external exposure sweep and a privileged‑session audit first; patch public dispatchers and exposed Gateway instances next. Two other items in the issue: SAP publishes product‑level cloud emissions data, and SAP Business Suite 7 maintenance deadlines.
+Run an external exposure sweep and a privileged-session audit first; patch public dispatchers and exposed Gateway instances next. Two other items in the issue: SAP publishes product-level cloud emissions data, and SAP Business Suite 7 maintenance deadlines.

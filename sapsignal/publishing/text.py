@@ -56,7 +56,8 @@ def footnotes(text: str) -> str:
 
 
 def reader(text: str) -> str:
-    return human_dates(strip_markers(text))
+    from .typography import normalize
+    return normalize(human_dates(strip_markers(text)))
 
 
 def tidy_newsletter(md: str) -> str:

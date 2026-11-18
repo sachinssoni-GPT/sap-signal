@@ -5,7 +5,7 @@ from types import SimpleNamespace
 import pytest
 
 from sapsignal.agents import crews
-from sapsignal.schemas import (Candidate, Claim, DeadlineProposals, LinkedInPack, StoryBrief, Take, TakePlan,
+from sapsignal.schemas import (Candidate, Claim, DeadlineProposals, LinkedInPack, ProofReport, StoryBrief, Take, TakePlan,
                                TakeSection, TriageResult, VerificationReport)
 
 
@@ -35,7 +35,7 @@ take = Take(format="decision_guide", title="t", dek="d", sections=[TakeSection(h
 FAKES = {TriageResult: TriageResult(picks=[]),
          StoryBrief: StoryBrief(claims=[], headline="h", summary="s", why_it_matters="w"),
          TakePlan: TakePlan(story_id="E1", format="decision_guide", angle="a"),
-         Take: take, DeadlineProposals: DeadlineProposals(),
+         Take: take, DeadlineProposals: DeadlineProposals(), ProofReport: ProofReport(),
          LinkedInPack: LinkedInPack(share_post="s", story_post="p", carousel_caption="c")}
 rep = VerificationReport(candidate_id="E1", claims=[Claim(id="C1", text="a {braced} fact")], evidence=[])
 
@@ -50,5 +50,6 @@ def test_all_prompts_fill_their_placeholders(checked):
     crews.run_take(TakePlan(story_id="E1", format="contrarian", angle="a"), "T", rep, "a fact", feedback="fix")
     crews.run_deadlines({"E1": [("C1", "ends", "ends on 31 December 2027")]})
     pack = crews.run_linkedin(take, ["h1", "h2"], "intro", ["31 Dec 2027: ECC"], "")
-    assert len(checked) == 8 and pack.story_needs_input is False
+    crews.run_proofread({"issue.title": "A {braced} title"})
+    assert len(checked) == 9 and pack.story_needs_input is False
     assert crews.run_deadlines({}).rows == []                      # nothing dated: no model call

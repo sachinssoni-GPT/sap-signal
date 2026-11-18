@@ -29,11 +29,25 @@ def _covered() -> frozenset:
     return frozenset(sets[0] & sets[1])
 
 
+UNDRAWABLE: list[str] = []      # characters replaced while rendering (reported by the QA check)
+
+
 def safe_text(text: str) -> str:
-    """Never draw a missing-glyph box: swap common symbols, drop anything the bundled fonts can't render."""
-    text = "".join(_SWAP.get(ch, ch) for ch in text or "")
+    """Never draw a missing-glyph box and never glue words: normalise look-alikes, swap common symbols,
+    and replace anything the bundled fonts can't draw with its plain-letter form (or a space)."""
+    import unicodedata
+    from .typography import normalize
+    text = "".join(_SWAP.get(ch, ch) for ch in normalize(text or ""))
     ok = _covered()
-    return "".join(ch for ch in text if ord(ch) in ok or ch in "\n")
+    out = []
+    for ch in text:
+        if ord(ch) in ok or ch == "\n":
+            out.append(ch)
+            continue
+        plain = "".join(c for c in unicodedata.normalize("NFKD", ch) if ord(c) in ok and not unicodedata.combining(c))
+        UNDRAWABLE.append(f"U+{ord(ch):04X}")
+        out.append(plain or " ")
+    return " ".join("".join(out).split(" ")) if out else ""
 
 
 def _wrap(draw: ImageDraw.ImageDraw, text: str, font, max_width: int) -> list[str]:

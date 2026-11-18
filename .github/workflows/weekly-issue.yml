@@ -44,6 +44,8 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: OCR for the image check
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr
 
       - name: Pick up notes sent since the last collection
         run: python main.py collect-notes || true

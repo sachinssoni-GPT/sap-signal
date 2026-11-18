@@ -266,8 +266,10 @@ def all_output_text(folder: Path) -> str:
 
 
 def write_edition(root: Path, ed: Edition, reports: dict[str, VerificationReport], publication: dict) -> Path:
+    from ..qa import proofread, run_checks
     folder = root / ed.edition_id
     folder.mkdir(parents=True, exist_ok=True)
+    ed, proof_notes = proofread(ed)          # normalise + copy-edit every reader-facing string first
     take_report = reports.get("_take")
     issue_md = render_issue_md(ed, take_report)
     banned = find_banned(issue_md + "\n" + "\n".join(str(v) for v in linkedin_texts(ed).values()))
@@ -285,8 +287,14 @@ def write_edition(root: Path, ed: Edition, reports: dict[str, VerificationReport
     (folder / "EDITORIAL_WARNINGS.md").write_text(
         "# Editorial warnings\n\n" + ("\n".join(f"- {w}" for w in ed.warnings) if ed.warnings else "- None") + "\n",
         encoding="utf-8")
-    (folder / "edition.json").write_text(ed.model_dump_json(indent=2), encoding="utf-8")
     write_linkedin(folder, ed, issue_md)
+    qa = run_checks(ed, folder)              # text files + OCR of every image
+    ed.warnings = [w for w in qa if w.startswith("BLOCKING")] + ed.warnings + \
+        [w for w in qa if not w.startswith("BLOCKING")] + proof_notes
+    (folder / "EDITORIAL_WARNINGS.md").write_text(
+        "# Editorial warnings\n\n" + ("\n".join(f"- {w}" for w in ed.warnings) if ed.warnings else "- None") + "\n",
+        encoding="utf-8")
+    (folder / "edition.json").write_text(ed.model_dump_json(indent=2), encoding="utf-8")
     return folder
 
 

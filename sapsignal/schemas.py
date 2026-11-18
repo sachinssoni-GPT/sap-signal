@@ -251,3 +251,16 @@ class Edition(BaseModel):
     def edition_no(self) -> int:
         m = re.fullmatch(r"\d{4}-\d{2}-\d{2}-(\d+)", self.edition_id)
         return int(m.group(1)) if m else 1
+
+
+# ---------- proofreading ----------
+class ProofIssue(BaseModel):
+    field: str = Field(description="The field id exactly as given, e.g. story.E3.summary")
+    quote: str = Field(description="The exact faulty text copied from that field, 1-12 words")
+    fix: str = Field(description="The corrected text for that quote only")
+    kind: Literal["missing_space", "typo", "doubled_word", "grammar", "wrong_word", "inconsistency", "other"]
+    note: str = ""
+
+
+class ProofReport(BaseModel):
+    issues: list[ProofIssue] = Field(default_factory=list)

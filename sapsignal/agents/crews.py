@@ -12,6 +12,7 @@ from ..schemas import (
     Claim,
     DeadlineProposals,
     LinkedInPack,
+    ProofReport,
     StoryBrief,
     Take,
     TakePlan,
@@ -585,3 +586,29 @@ def run_linkedin(take, headlines: list[str], intro: str, radar: list[str], newsl
     pack = _structured_output(out, LinkedInPack, "linkedin pack")
     pack.story_needs_input = pack.story_needs_input or "[YOUR STORY" in pack.story_post.upper()
     return pack
+
+
+
+# ---------------------------------------------------------------- proofreading
+def run_proofread(fields: dict[str, str]) -> ProofReport:
+    """A meticulous copy-editor over every reader-facing string. Code applies only small, exact fixes."""
+    agent = Agent(
+        role="Meticulous copy-editor of a professional SAP newsletter",
+        goal="Find every mechanical error before a senior audience sees it",
+        backstory=("You check spelling, words run together without a space, missing or doubled words, broken "
+                   "grammar, wrong word choice, and numbers, dates or names that disagree between fields. You "
+                   "know SAP terms (S/4HANA, RISE, BTP, ABAP, CVE ids, product names) and never 'fix' them. You "
+                   "do not rewrite for style. " + SAFETY),
+        llm=make_llm("extractor"), allow_delegation=False, verbose=_verbose())
+    task = Task(
+        description=("Fields of this week's issue, one per block as [field id] then its text:\n\n{fields}\n\n"
+                     "Report every MECHANICAL error: missing_space (two words joined, e.g. 'maximumseverity'), "
+                     "typo, doubled_word, grammar (a broken sentence), wrong_word, inconsistency (a number, date or "
+                     "name that differs between fields: quote the wrong one). For each: field id copied exactly, "
+                     "quote = the exact faulty text copied character for character from that field (1-12 words), "
+                     "fix = the corrected version of that quote only. Do not report style preferences. Return no "
+                     "issues if the text is clean."),
+        expected_output="A ProofReport", agent=agent, output_pydantic=ProofReport)
+    block = "\n\n".join(f"[{k}]\n{v}" for k, v in fields.items() if (v or "").strip())
+    out = _crew([agent], [task]).kickoff(inputs={"fields": _safe(block)})
+    return _structured_output(out, ProofReport, "proofread")

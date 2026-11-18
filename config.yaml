@@ -176,6 +176,13 @@ verification:
     general: 1
   fetch_timeout_s: 60
 
+# Quality checks on every draft: a copy-editor pass over all text (small fixes applied automatically,
+# the rest listed in the approval email) and OCR of every image compared with the words it should show.
+qa:
+  proofread: true
+  ocr_images: true
+  block_approval_on_errors: true     # Approve refuses while a blocking QA error remains (Regenerate or fix)
+
 quality:
   max_revisions: 1
   banned_phrases:
