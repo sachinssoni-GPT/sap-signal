@@ -10,6 +10,7 @@ const ACTIONS = {
   regenerate: { event: "sig-regenerate", label: "Discard and regenerate", color: "#555" },
   run: { event: "sig-run", label: "Build a new draft now", color: "#0b6e69" },
   notes: { event: "sig-notes", label: "Collect my notes now", color: "#0b6e69" },
+  weekly: { event: "sig-weekly", label: "Weekly run", color: "#0b6e69" },   // cron only, never a link
 };
 
 const enc = new TextEncoder();
@@ -28,7 +29,7 @@ function safeEqual(a, b) {
 }
 
 async function verify(env, p) {
-  if (!ACTIONS[p.action]) return "Unknown action.";
+  if (!ACTIONS[p.action] || p.action === "weekly") return "Unknown action.";
   if (!/^\d{4}-\d{2}-\d{2}(-[1-9]\d?)?$/.test(p.date || "")) return "Bad edition id.";
   const exp = Number(p.exp);
   if (!Number.isFinite(exp) || Date.now() / 1000 > exp) return "This link has expired.";
@@ -66,6 +67,12 @@ async function dispatch(env, action, date, reason) {
 }
 
 export default {
+  // Sunday 00:30 UTC (06:00 IST): start the weekly draft on time (GitHub's own scheduler can run hours late).
+  async scheduled(event, env, ctx) {
+    const today = new Date().toISOString().slice(0, 10);
+    ctx.waitUntil(dispatch(env, "weekly", today, "scheduled").then((err) => { if (err) console.log(err); }));
+  },
+
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname !== "/decide") return page("Not found", "<p>Not found.</p>", 404);

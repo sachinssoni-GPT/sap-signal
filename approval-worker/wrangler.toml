@@ -2,7 +2,10 @@ name = "sap-signal-approval"
 main = "src/index.js"
 compatibility_date = "2025-06-01"
 
-# Approval buttons only: no cron triggers (the weekly run and reminders use GitHub's own schedule).
+# One cron: the weekly draft, Sunday 00:30 UTC = 06:00 IST, on time. (Cloudflare's free plan allows 5 crons
+# per ACCOUNT; Undercurrent's worker uses 4, so this is the last one.) GitHub's schedule stays as a backup.
+[triggers]
+crons = ["30 0 * * 0"]
 
 [vars]
 # owner/repo that holds the SAP Signal pipeline

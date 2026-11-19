@@ -8,7 +8,7 @@ you send them) · five things that moved · the Deadline Radar.
 
 ## How it works
 ```
-Mon  discover   a week of SAP news: Google News queries per beat (free) -> clustered events
+Sun  discover   a week of SAP news: Google News queries per beat (free) -> clustered events
      triage     buyer impact 0-100: money, deadline, risk, effort (marketing scores low)
      briefing   each story read from a real outlet; every claim needs an exact quote found on the page
      the take   the Signal + a rotating format, written from YOUR notes (Telegram /take, voice, notes/)

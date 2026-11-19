@@ -76,8 +76,8 @@ dry run; nothing is ever posted for you.
 | When | What happens | You |
 | --- | --- | --- |
 | Any day | Message the bot `/take <point>` or a voice note | 2 minutes, optional |
-| Mon 18:00 IST | Draft issue built from the week's news + your notes | |
-| Mon/Tue | Email + Telegram with Approve / Reject / Regenerate | ~30 min reading |
+| Sun 06:00 IST | Draft issue built from the week's news + your notes (Cloudflare cron, on time) | |
+| Sun | Email + Telegram with Approve / Reject / Regenerate | ~30 min reading |
 | Tue (after approving) | Telegram sends the article page, cover, title, share post | ~15 min posting |
 | Thu 18:30 IST | Telegram reminder with the story post | fill any [YOUR STORY] gap, post |
 | Sat 10:00 IST | Telegram reminder with the carousel PDF + caption | post |

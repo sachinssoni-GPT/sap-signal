@@ -2,8 +2,10 @@ name: Weekly issue (draft for approval)
 
 on:
   schedule:
-    - cron: "30 12 * * 1"       # Monday 18:00 IST: this week's draft
-    - cron: "30 15 * * 1"       # backup (GitHub's scheduler can skip a run): does nothing if the draft exists
+    # The on-time trigger is the approval Worker's cron (Sunday 06:00 IST, event sig-weekly).
+    # These are backups only: GitHub can run them hours late; they do nothing if the draft already exists.
+    - cron: "30 1 * * 0"        # Sunday 07:00 IST
+    - cron: "30 4 * * 0"        # Sunday 10:00 IST
   workflow_dispatch:
     inputs:
       force:
@@ -11,7 +13,7 @@ on:
         type: boolean
         default: false
   repository_dispatch:
-    types: [sig-regenerate, sig-run]   # Regenerate button / "Build a new draft now" (Telegram control panel)
+    types: [sig-regenerate, sig-run, sig-weekly]   # Regenerate / "Build a new draft now" / Worker's Sunday cron
 
 permissions:
   contents: write
