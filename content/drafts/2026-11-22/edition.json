@@ -1,0 +1,253 @@
+{
+  "edition_date": "2026-11-22",
+  "edition_id": "2026-11-22",
+  "issue_no": 2,
+  "run_id": "20261122-084115",
+  "title": "Rewiring SuccessFactors: TechWolf as the AI core",
+  "description": "A decision framework to adapt SuccessFactors architecture and roadmaps now that TechWolf supplies grounding for Joule intelligence.",
+  "lead_id": "E18",
+  "stories": [
+    {
+      "rank": 1,
+      "candidate_id": "E18",
+      "headline": "SAP completes acquisition of TechWolf for SuccessFactors AI core",
+      "summary": "SAP completed the acquisition of TechWolf, a provider of an AI work intelligence platform, into its portfolio. SAP said TechWolf will become the intelligent core of SAP SuccessFactors and that TechWolf’s proprietary context graph will serve as SAP’s grounding layer for agent queries, lowering token costs and supporting Joule intelligence in HR scenarios.",
+      "why_it_matters": "For SAP landscapes this centralizes work/skills data and agent grounding inside SuccessFactors, which should reduce token-driven AI costs but requires integration and governance work across HR and data services.",
+      "confidence": "high",
+      "score": 63.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecosystem",
+      "vendor_only": false,
+      "also_reported": [
+        {
+          "origin": "ad-hoc-news.de",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "candidate_id": "E151",
+      "headline": "SAP publishes critical S/4HANA and NetWeaver security patches",
+      "summary": "On 9 June 2026 SAP published 15 security notes, led by a CVSS 9.9 SAML XML Signature Wrapping flaw in Note 3746332 that can let attackers forge authentication assertions. The release also includes a CVSS 9.8 RFC kernel memory-corruption fix in Note 3717897 that requires a kernel patch with no configuration workaround, and affects many hybrid estates still running NetWeaver and ABAP.",
+      "why_it_matters": "SAP shops must prioritise the SAML fix and schedule disruptive kernel updates immediately; hybrid estates cannot treat NetWeaver/ABAP as low-priority or defer patching without raising breach risk and potential emergency remediation costs.",
+      "confidence": "developing",
+      "score": 80.0,
+      "sources": [
+        {
+          "origin": "SAPinsider",
+          "url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+          "tier": "trade_press",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "clean_core",
+      "vendor_only": false,
+      "also_reported": [
+        {
+          "origin": "esecurityplanet.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "candidate_id": "E1",
+      "headline": "Rimini Street expands partnership with American Digital to support SAP cloud modernization",
+      "summary": "Rimini Street expanded its strategic partnership with American Digital to position American Digital as a solution partner for Rimini Cloud™ for SAP and help SAP ECC and S/4HANA customers move systems to modern cloud infrastructure. The approach explicitly avoids ERP reimplementation and conversion of perpetual licenses to subscriptions, preserving existing licenses and customizations, and builds on a 2025 alliance between the two firms.",
+      "why_it_matters": "SAP customers can modernize infrastructure and reduce migration risk and cost while preserving perpetual licenses and deferring or staging expensive ERP reimplementation or subscription conversions.",
+      "confidence": "developing",
+      "score": 60.0,
+      "sources": [
+        {
+          "origin": "portalerp.com",
+          "url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "commercials",
+      "vendor_only": true,
+      "also_reported": [
+        {
+          "origin": "channellife.co.uk",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "Yahoo Finance",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "morningstar.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        },
+        {
+          "origin": "bdtonline.com",
+          "url": "",
+          "tier": "unknown",
+          "perspective": "unclassified"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "candidate_id": "E53",
+      "headline": "SAP expands Joule-Microsoft integration with Work IQ and Copilot delegation",
+      "summary": "SAP is making Joule Work more interoperable with Microsoft Work IQ and adding bidirectional data and agent integration. SAP says agents built with Microsoft Copilot Studio can delegate SAP-specific work to Joule Agents while \"security, identity, and policies carry through automatically,\" and the SAP AI Agent Hub provides telemetry and lifecycle visibility across environments.",
+      "why_it_matters": "This shifts integration effort from rebuilding SAP business logic into Microsoft agents toward configuring governed agent connections and lifecycle management, likely lowering custom development costs but increasing ongoing governance and monitoring spend.",
+      "confidence": "developing",
+      "score": 50.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecosystem",
+      "vendor_only": false,
+      "also_reported": []
+    },
+    {
+      "rank": 5,
+      "candidate_id": "E60",
+      "headline": "Takeda moves SAP ECC to SAP Cloud ERP via RISE",
+      "summary": "Takeda is migrating from SAP ECC to SAP Cloud ERP via RISE with SAP to simplify processes and enable AI-enabled working. The company stresses SAP is “the core system” for manufacturing, supply chain, finance and quality across its global operations. Takeda and SAP are co-developing agentic AI features for regulated industries to scale across the sector.",
+      "why_it_matters": "Expect S/4HANA/RISE licensing, cloud hosting, integration and validation work to become material budget items and roadmap priorities, plus additional effort to certify and govern AI/agentic automation in regulated processes.",
+      "confidence": "developing",
+      "score": 45.0,
+      "sources": [
+        {
+          "origin": "SAP",
+          "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+          "tier": "primary",
+          "perspective": "unclassified"
+        }
+      ],
+      "section": "ecc_exit",
+      "vendor_only": false,
+      "also_reported": []
+    }
+  ],
+  "take": {
+    "format": "decision_guide",
+    "title": "Rewiring SuccessFactors: TechWolf as the AI core",
+    "dek": "A decision framework to adapt SuccessFactors architecture and roadmaps now that TechWolf supplies grounding for Joule intelligence.",
+    "sections": [
+      {
+        "heading": "A design review, coffee getting cold",
+        "body": "We are mid-way through a SuccessFactors design review: an architect sketches how learning, performance and recruiting should share a skills model while a PM counts interfaces and SLAs. The question on the table is simple and concrete — do we preserve our in-house skills graph or start routing agent queries to the vendor's new core?\n\nFact: SAP announced it completed the acquisition of TechWolf. [C1]\n\nFact: SAP says TechWolf will become an intelligent core of the SuccessFactors portfolio. [C2]\n\nFact: SAP says TechWolf’s proprietary context graph will serve as a grounding layer for agent queries about work and skills planning. [C3]\n\nMy judgement: These statements are vendor commitments of intent, not a technical standard or timeline. Treat them as a strategic product direction from SAP, not as an immediate change to your contracts, data governance or SLAs. The architectural implication is clear: if TechWolf actually becomes the grounding layer, the canonical definitions for skills and context will shift toward an external graph. That changes integration, ownership and operational responsibilities — but SAP has not published the integration contracts, governance model or migration timeline in the public claims above."
+      },
+      {
+        "heading": "Three realistic paths and their trade-offs",
+        "body": "Option A — Lean in: adopt TechWolf as the canonical skills and work graph.\n\nCost: medium–high upfront integration and migration effort; operational cost may drop if TechWolf’s grounding reduces runtime prompt size. Fact: SAP claims token usage will be more efficient, lowering workforce agent costs. [C4]\n\nRisk: vendor lock-in, schema changes outside your control, and potential misalignment with bespoke HR processes.\n\nEffort: map taxonomies, negotiate API contracts and establish governance for schema changes.\n\nPick this if your roadmaps prioritise Joule-style agent outcomes, you lack an in-house graph, and you can contractually secure schema stability and compliance.\n\nOption B — Stand-alone: keep your internal canonical graph and expose it to Joule/agents via adapters.\n\nCost: higher operational overhead and missed token-efficiency benefits claimed by SAP.\n\nRisk: duplicated models and divergence over time.\n\nEffort: build adapter layers, versioned contracts and reconciliation processes.\n\nPick this if data residency, auditability or bespoke workflow fidelity makes outsourcing the canonical model unacceptable.\n\nOption C — Hybrid: pilot TechWolf for selected Joule scenarios while retaining your authoritative model with clear sync rules.\n\nCost: initial extra integration work; lower migration risk.\n\nRisk: complexity in synchronization and temporary inconsistencies.\n\nEffort: implement scoped sync, fallbacks, and governance for “system of record.”\n\nPick this if you want measurable evidence of token cost and agent quality improvements before committing. My judgement: for most enterprises, Option C is the pragmatic way to learn without breaking production."
+      },
+      {
+        "heading": "How I'd decide — a decision tree and an execution outline",
+        "body": "Step 1 — Inventory decisions. List the HR outcomes that must be deterministically reproducible (promotions, pay actions, compliance reports) versus probabilistic agent outputs (coaching, candidate matching). If a majority of critical outcomes require deterministic provenance and you cannot accept external authority, favour Option B.\n\nStep 2 — Non-functional gate. If regulatory, residency or audit requirements prevent external canonicalization, choose Option B. If not, proceed to a hybrid pilot.\n\nStep 3 — Pilot design (if you reach hybrid):\n• Scope: pick 2–4 narrow use cases (e.g., learning recommendations, skills-based internal mobility) where Joule agent reasoning is valuable.\n• Success metrics: predefine measurable KPIs — agent decision accuracy against labelled testcases, delta in average prompt/context size, operational cost delta vs baseline, and governance overhead measured in change requests per month.\n• Integration milestones: (1) contract API surface and SLAs; (2) one-time taxonomy mapping and bi-directional sync rules; (3) transactional fallbacks so authoritative HR actions require local confirmation; (4) audit trail and explainability hooks.\n• Rollback criteria: inability to meet accuracy targets, unexpected schema churn, or unresolved compliance objections should trigger suspension and revert to local authority.\n\nStep 4 — Contracting and governance. Require explicit schema-stability SLAs, versioned API contracts, data-residency guarantees and a change-notice window. Negotiate rights to export and operate a local copy of canonical data for compliance-critical scenarios.\n\nFinal judgement: the acquisition re-centres the conversation about where skills truth lives. Act like you would with any platform migration — pilot, measure, protect authority for critical decisions, and insist on contractual guardrails before you cut over. Small note: the acquisition press release itself was created with AI and reviewed by editors, a reminder vendor narratives may blend machine and human voice. [C5]"
+      }
+    ],
+    "watch": [
+      "SAP roadmap detailing TechWolf integration points and timelines for SuccessFactors and Joule.",
+      "Published API contracts, canonical schema and governance model for TechWolf’s context graph.",
+      "Pilot guidance or reference architectures from SAP or partners for hybrid deployments."
+    ],
+    "social_post": "TechWolf becomes SuccessFactors' grounding layer — three options for architects: lean in, stay independent, or run a hybrid pilot. Start hybrid and measure before you cut over.",
+    "seo_description": "Decision framework for SuccessFactors architects after TechWolf becomes the AI grounding layer for Joule intelligence.",
+    "slug": "techwolf-successfactors-ai-core-decision"
+  },
+  "take_ids": [
+    "E18"
+  ],
+  "take_from_notes": false,
+  "intro": "SAP has acquired TechWolf; its context graph becomes the intelligent core for SuccessFactors and a grounding layer for Joule agent queries.",
+  "linkedin": {
+    "share_post": "SAP has acquired TechWolf — context graph becomes core\n\nSAP says TechWolf’s proprietary context graph will be the grounding layer for Joule queries across SuccessFactors. Treat that as a strategic product direction, not an immediate technical contract change. The implication is straightforward: if TechWolf becomes the canonical skills graph, integration, ownership and compliance responsibilities shift toward an external vendor-managed surface.\n\nMy advice: pilot first, insist on schema-stability SLAs, and protect authority for deterministic HR outcomes. Don’t cut over critical decisions until you have contractual guardrails and measurable pilot evidence.\n\nAlso in this issue: critical S/4HANA and NetWeaver security patches; expanded Joule–Microsoft integration with Work IQ and Copilot delegation.",
+    "story_post": "A design review was quiet for a while — an architect sketched a shared skills model while a PM counted interfaces and SLAs. The question on the table was simple: keep our in-house skills graph, or start routing agent queries to an external context core?\n\nI’ve seen this same pattern before: a new platform promise collapses multiple teams’ assumptions about ownership and change control into one place. The hard trade-off isn’t a technology choice; it’s an authority choice. Do you allow an external graph to be the source of truth for pay, promotions and compliance? If yes, you must earn the right contractually and operationally. If no, you must accept higher operational overhead to preserve local authority.\n\n[YOUR STORY: a time an integration broke at go-live because...]\n\nPractical takeaway: pilot TechWolf for a few narrow Joule scenarios, define deterministic vs probabilistic outcomes, and require schema-stability SLAs and export rights before any cutover for compliance-critical flows. Read the full Take in this week’s newsletter.",
+    "story_needs_input": true,
+    "carousel_caption": "TechWolf changes where skills truth might live. Review the decision paths, the pilot checklist, and this week’s deadline radar. Save this carousel for planning and contract discussions. #SAP #architecture",
+    "carousel_title": "TechWolf and Deadlines"
+  },
+  "deadlines_new": [],
+  "quality": {
+    "verdict": "pass",
+    "checks": [
+      {
+        "name": "citations_reference_real_claims",
+        "passed": true,
+        "severity": "block",
+        "detail": "unknown claim ids: []"
+      },
+      {
+        "name": "cites_evidence",
+        "passed": true,
+        "severity": "block",
+        "detail": "the piece cites no verified claim"
+      },
+      {
+        "name": "no_banned_terms",
+        "passed": true,
+        "severity": "block",
+        "detail": "contains banned term(s): []"
+      },
+      {
+        "name": "word_count_in_range",
+        "passed": true,
+        "severity": "info",
+        "detail": "701 words (aim 400-650)"
+      },
+      {
+        "name": "has_sections",
+        "passed": true,
+        "severity": "info",
+        "detail": "3 sections"
+      },
+      {
+        "name": "headings_are_specific",
+        "passed": true,
+        "severity": "info",
+        "detail": "stock headings: []"
+      },
+      {
+        "name": "no_generic_phrases",
+        "passed": true,
+        "severity": "info",
+        "detail": "found: []"
+      },
+      {
+        "name": "no_dated_forecasts",
+        "passed": true,
+        "severity": "info",
+        "detail": "contains odds or 'check me on' language"
+      },
+      {
+        "name": "title_length",
+        "passed": true,
+        "severity": "info",
+        "detail": "7 words"
+      }
+    ],
+    "issues": [],
+    "feedback": ""
+  },
+  "warnings": [],
+  "status": "draft"
+}

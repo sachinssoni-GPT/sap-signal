@@ -1,0 +1,110 @@
+{
+  "candidate_id": "E151",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP published 15 security notes on June 9, 2026; headline note rated CVSS 9.9.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "The most severe note (3746332, CVE-2026-44748) is an XML Signature Wrapping SAML flaw allowing authentication bypass.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "A kernel memory corruption in the AS ABAP RFC kernel (Note 3717897, CVE-2026-27671) is rated CVSS 9.8 and requires a kernel patch with no workaround.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "Most customers run hybrid estates; only 34% fully transitioned to S/4HANA or cloud, so NetWeaver and ABAP remain widely used and must be patched.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "quote": "SAP's June 9, 2026 Security Patch Day published 15 new security notes, several at near-maximum severity against core NetWeaver and ABAP platform components, with the headline note rated CVSS 9.9.",
+      "origin": "sapinsider.org",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "retrieved_at": "2026-11-22T08:41:48+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "quote": "The most severe item, Note 3746332 (CVE-2026-44748), is an XML Signature Wrapping flaw in SAML authentication that can let an attacker forge a valid authentication assertion and bypass login controls.",
+      "origin": "sapinsider.org",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "retrieved_at": "2026-11-22T08:41:48+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "quote": "Close behind is SAP Security Note 3717897, CVE-2026-27671, a memory corruption vulnerability in the Application Server ABAP RFC kernel, rated CVSS 9.8.",
+      "origin": "sapinsider.org",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "retrieved_at": "2026-11-22T08:41:48+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "quote": "SAPinsider’s ERP Migration and Transformation 2026 report found that 55% of organizations have deployed SAP S/4HANA or SAP cloud, but only 34% have fully transitioned, meaning the majority are running mixed estates where these classic components still carry critical business processes and must be patched on the same cadence as newer components.",
+      "origin": "sapinsider.org",
+      "stance": "supports",
+      "source_tier": "trade_press",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/",
+      "retrieved_at": "2026-11-22T08:41:48+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sapinsider.org; 4 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

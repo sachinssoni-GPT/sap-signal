@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E18",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "WALLDORF — SAP SE (NYSE: SAP) today announced it has completed the acquisition of TechWolf, provider of a leading AI work intelligence platform.",
+      "central": true,
+      "claim_type": "official_statement"
+    },
+    {
+      "id": "C2",
+      "text": "TechWolf is expected to become an intelligent core of the SAP SuccessFactors portfolio, supporting the company’s talent and work intelligence strategy.",
+      "central": false,
+      "claim_type": "official_statement"
+    },
+    {
+      "id": "C3",
+      "text": "TechWolf’s proprietary context graph will become SAP’s grounding layer for agent queries regarding work and skills planning and talent management.",
+      "central": false,
+      "claim_type": "official_statement"
+    },
+    {
+      "id": "C4",
+      "text": "This will make token usage more efficient, lowering the cost of deploying workforce agents and supporting Joule intelligence in AI-driven HR scenarios.",
+      "central": false,
+      "claim_type": "market_or_impact"
+    },
+    {
+      "id": "C5",
+      "text": "This press release was created with the assistance of artificial intelligence and has been reviewed by the editorial team.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "quote": "WALLDORF — SAP SE (NYSE: SAP) today announced it has completed the acquisition of TechWolf, provider of a leading AI work intelligence platform.",
+      "origin": "SAP press release",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "sap_official",
+      "resolved_url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "retrieved_at": "2026-11-22T08:41:35+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "quote": "TechWolf is expected to become an intelligent core of the SAP SuccessFactors portfolio, supporting the company’s talent and work intelligence strategy.",
+      "origin": "SAP press release",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "sap_official",
+      "resolved_url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "retrieved_at": "2026-11-22T08:41:35+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "quote": "TechWolf’s proprietary context graph will become SAP’s grounding layer for agent queries regarding work and skills planning and talent management.",
+      "origin": "SAP press release",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "sap_official",
+      "resolved_url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "retrieved_at": "2026-11-22T08:41:35+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "quote": "This will make token usage more efficient, lowering the cost of deploying workforce agents and supporting Joule intelligence in AI-driven HR scenarios.",
+      "origin": "SAP press release",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "sap_official",
+      "resolved_url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "retrieved_at": "2026-11-22T08:41:35+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "quote": "This press release was created with the assistance of artificial intelligence and has been reviewed by the editorial team.",
+      "origin": "SAP press release",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "sap_official",
+      "resolved_url": "https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/",
+      "retrieved_at": "2026-11-22T08:41:35+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "1 independent origin(s); single-source developing report; qualify attribution and confidence"
+    }
+  ],
+  "summary": "combined ledger",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

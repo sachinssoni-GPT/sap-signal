@@ -1,0 +1,7 @@
+SAP has acquired TechWolf — context graph becomes core
+
+SAP says TechWolf’s proprietary context graph will be the grounding layer for Joule queries across SuccessFactors. Treat that as a strategic product direction, not an immediate technical contract change. The implication is straightforward: if TechWolf becomes the canonical skills graph, integration, ownership and compliance responsibilities shift toward an external vendor-managed surface.
+
+My advice: pilot first, insist on schema-stability SLAs, and protect authority for deterministic HR outcomes. Don’t cut over critical decisions until you have contractual guardrails and measurable pilot evidence.
+
+Also in this issue: critical S/4HANA and NetWeaver security patches; expanded Joule–Microsoft integration with Work IQ and Copilot delegation.

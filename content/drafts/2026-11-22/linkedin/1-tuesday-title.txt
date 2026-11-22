@@ -1,0 +1,3 @@
+Rewiring SuccessFactors: TechWolf as the AI core
+
+A decision framework to adapt SuccessFactors architecture and roadmaps now that TechWolf supplies grounding for Joule intelligence.

@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Rewiring SuccessFactors: TechWolf as the AI core</title>
+<style>body{font-family:Georgia,serif;max-width:720px;margin:32px auto;padding:0 16px;color:#17202a;line-height:1.6}
+.how{font-family:Helvetica,Arial,sans-serif;background:#eef4ff;border:1px solid #c9dcff;padding:12px 16px;border-radius:8px;
+font-size:14px;margin-bottom:28px} h1{font-family:Helvetica,Arial,sans-serif} h2{font-family:Helvetica,Arial,sans-serif;
+border-top:1px solid #dfe3e1;padding-top:18px} a{color:#0a6cff}</style></head><body>
+<div class="how"><b>How to post:</b> LinkedIn &rarr; Write article &rarr; choose the newsletter. Paste the title and
+subtitle from <i>1-tuesday-title.txt</i>, upload <i>1-tuesday-cover.png</i> as the cover, then select everything
+<b>below the line</b> on this page (from "SAP has acquired TechWolf; its context g" to the end), copy, and paste into the article body.
+Publish, and use <i>1-tuesday-share-post.txt</i> as the post text.</div>
+<h1>Rewiring SuccessFactors: TechWolf as the AI core</h1><p><i>A decision framework to adapt SuccessFactors architecture and roadmaps now that TechWolf supplies grounding for Joule intelligence.</i></p><hr>
+<p><em>SAP has acquired TechWolf; its context graph becomes the intelligent core for SuccessFactors and a grounding layer for Joule agent queries.</em></p>
+<h2>This week's Signal</h2>
+<p><strong>SAP completes acquisition of TechWolf for SuccessFactors AI core</strong></p>
+<p>SAP completed the acquisition of TechWolf, a provider of an AI work intelligence platform, into its portfolio. SAP said TechWolf will become the intelligent core of SAP SuccessFactors and that TechWolf’s proprietary context graph will serve as SAP’s grounding layer for agent queries, lowering token costs and supporting Joule intelligence in HR scenarios.</p>
+<p><strong>What it changes:</strong> For SAP landscapes this centralizes work/skills data and agent grounding inside SuccessFactors, which should reduce token-driven AI costs but requires integration and governance work across HR and data services.</p>
+<p>Source: <a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a></p>
+<h2>The Architect's Take</h2>
+<h3>Rewiring SuccessFactors: TechWolf as the AI core</h3>
+<p><em>How I'd decide · A decision framework to adapt SuccessFactors architecture and roadmaps now that TechWolf supplies grounding for Joule intelligence.</em></p>
+<p><strong>A design review, coffee getting cold</strong></p>
+<p>We are mid-way through a SuccessFactors design review: an architect sketches how learning, performance and recruiting should share a skills model while a PM counts interfaces and SLAs. The question on the table is simple and concrete — do we preserve our in-house skills graph or start routing agent queries to the vendor's new core?</p>
+<p>Fact: SAP announced it completed the acquisition of TechWolf. [1]</p>
+<p>Fact: SAP says TechWolf will become an intelligent core of the SuccessFactors portfolio. [2]</p>
+<p>Fact: SAP says TechWolf’s proprietary context graph will serve as a grounding layer for agent queries about work and skills planning. [3]</p>
+<p>My judgement: These statements are vendor commitments of intent, not a technical standard or timeline. Treat them as a strategic product direction from SAP, not as an immediate change to your contracts, data governance or SLAs. The architectural implication is clear: if TechWolf actually becomes the grounding layer, the canonical definitions for skills and context will shift toward an external graph. That changes integration, ownership and operational responsibilities — but SAP has not published the integration contracts, governance model or migration timeline in the public claims above.</p>
+<p><strong>Three realistic paths and their trade-offs</strong></p>
+<p>Option A — Lean in: adopt TechWolf as the canonical skills and work graph.</p>
+<p>Cost: medium–high upfront integration and migration effort; operational cost may drop if TechWolf’s grounding reduces runtime prompt size. Fact: SAP claims token usage will be more efficient, lowering workforce agent costs. [4]</p>
+<p>Risk: vendor lock-in, schema changes outside your control, and potential misalignment with bespoke HR processes.</p>
+<p>Effort: map taxonomies, negotiate API contracts and establish governance for schema changes.</p>
+<p>Pick this if your roadmaps prioritise Joule-style agent outcomes, you lack an in-house graph, and you can contractually secure schema stability and compliance.</p>
+<p>Option B — Stand-alone: keep your internal canonical graph and expose it to Joule/agents via adapters.</p>
+<p>Cost: higher operational overhead and missed token-efficiency benefits claimed by SAP.</p>
+<p>Risk: duplicated models and divergence over time.</p>
+<p>Effort: build adapter layers, versioned contracts and reconciliation processes.</p>
+<p>Pick this if data residency, auditability or bespoke workflow fidelity makes outsourcing the canonical model unacceptable.</p>
+<p>Option C — Hybrid: pilot TechWolf for selected Joule scenarios while retaining your authoritative model with clear sync rules.</p>
+<p>Cost: initial extra integration work; lower migration risk.</p>
+<p>Risk: complexity in synchronization and temporary inconsistencies.</p>
+<p>Effort: implement scoped sync, fallbacks, and governance for “system of record.”</p>
+<p>Pick this if you want measurable evidence of token cost and agent quality improvements before committing. My judgement: for most enterprises, Option C is the pragmatic way to learn without breaking production.</p>
+<p><strong>How I'd decide — a decision tree and an execution outline</strong></p>
+<p>Step 1 — Inventory decisions. List the HR outcomes that must be deterministically reproducible (promotions, pay actions, compliance reports) versus probabilistic agent outputs (coaching, candidate matching). If a majority of critical outcomes require deterministic provenance and you cannot accept external authority, favour Option B.</p>
+<p>Step 2 — Non-functional gate. If regulatory, residency or audit requirements prevent external canonicalization, choose Option B. If not, proceed to a hybrid pilot.</p>
+<p>Step 3 — Pilot design (if you reach hybrid):
+• Scope: pick 2–4 narrow use cases (e.g., learning recommendations, skills-based internal mobility) where Joule agent reasoning is valuable.
+• Success metrics: predefine measurable KPIs — agent decision accuracy against labelled testcases, delta in average prompt/context size, operational cost delta vs baseline, and governance overhead measured in change requests per month.
+• Integration milestones: (1) contract API surface and SLAs; (2) one-time taxonomy mapping and bi-directional sync rules; (3) transactional fallbacks so authoritative HR actions require local confirmation; (4) audit trail and explainability hooks.
+• Rollback criteria: inability to meet accuracy targets, unexpected schema churn, or unresolved compliance objections should trigger suspension and revert to local authority.</p>
+<p>Step 4 — Contracting and governance. Require explicit schema-stability SLAs, versioned API contracts, data-residency guarantees and a change-notice window. Negotiate rights to export and operate a local copy of canonical data for compliance-critical scenarios.</p>
+<p>Final judgement: the acquisition re-centres the conversation about where skills truth lives. Act like you would with any platform migration — pilot, measure, protect authority for critical decisions, and insist on contractual guardrails before you cut over. Small note: the acquisition press release itself was created with AI and reviewed by editors, a reminder vendor narratives may blend machine and human voice. [5]</p>
+<p><strong>What to watch</strong></p>
+<ul>
+<li>SAP roadmap detailing TechWolf integration points and timelines for SuccessFactors and Joule.</li>
+<li>Published API contracts, canonical schema and governance model for TechWolf’s context graph.</li>
+<li>Pilot guidance or reference architectures from SAP or partners for hybrid deployments.</li>
+</ul>
+<h2>4 things that moved</h2>
+<p><strong>1. SAP publishes critical S/4HANA and NetWeaver security patches</strong>
+<em>Clean Core &amp; BTP</em></p>
+<p>On 9 June 2026 SAP published 15 security notes, led by a CVSS 9.9 SAML XML Signature Wrapping flaw in Note 3746332 that can let attackers forge authentication assertions. The release also includes a CVSS 9.8 RFC kernel memory-corruption fix in Note 3717897 that requires a kernel patch with no configuration workaround, and affects many hybrid estates still running NetWeaver and ABAP.</p>
+<p><strong>What it changes:</strong> SAP shops must prioritise the SAML fix and schedule disruptive kernel updates immediately; hybrid estates cannot treat NetWeaver/ABAP as low-priority or defer patching without raising breach risk and potential emergency remediation costs.</p>
+<p>Source: <a href="https://sapinsider.org/blogs/sap-june-2026-security-patch-day-netweaver-abap/">SAPinsider</a> · developing</p>
+<p><strong>2. Rimini Street expands partnership with American Digital to support SAP cloud modernization</strong>
+<em>Licensing &amp; commercials</em></p>
+<p>Rimini Street expanded its strategic partnership with American Digital to position American Digital as a solution partner for Rimini Cloud™ for SAP and help SAP ECC and S/4HANA customers move systems to modern cloud infrastructure. The approach explicitly avoids ERP reimplementation and conversion of perpetual licenses to subscriptions, preserving existing licenses and customizations, and builds on a 2025 alliance between the two firms.</p>
+<p><strong>What it changes:</strong> SAP customers can modernize infrastructure and reduce migration risk and cost while preserving perpetual licenses and deferring or staging expensive ERP reimplementation or subscription conversions.</p>
+<p>Source: <a href="https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership">portalerp.com</a> · vendor source, not independently confirmed</p>
+<p><strong>3. SAP expands Joule-Microsoft integration with Work IQ and Copilot delegation</strong>
+<em>Ecosystem</em></p>
+<p>SAP is making Joule Work more interoperable with Microsoft Work IQ and adding bidirectional data and agent integration. SAP says agents built with Microsoft Copilot Studio can delegate SAP-specific work to Joule Agents while "security, identity, and policies carry through automatically," and the SAP AI Agent Hub provides telemetry and lifecycle visibility across environments.</p>
+<p><strong>What it changes:</strong> This shifts integration effort from rebuilding SAP business logic into Microsoft agents toward configuring governed agent connections and lifecycle management, likely lowering custom development costs but increasing ongoing governance and monitoring spend.</p>
+<p>Source: <a href="https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/">SAP</a> · developing</p>
+<p><strong>4. Takeda moves SAP ECC to SAP Cloud ERP via RISE</strong>
+<em>ECC exit &amp; S/4HANA</em></p>
+<p>Takeda is migrating from SAP ECC to SAP Cloud ERP via RISE with SAP to simplify processes and enable AI-enabled working. The company stresses SAP is “the core system” for manufacturing, supply chain, finance and quality across its global operations. Takeda and SAP are co-developing agentic AI features for regulated industries to scale across the sector.</p>
+<p><strong>What it changes:</strong> Expect S/4HANA/RISE licensing, cloud hosting, integration and validation work to become material budget items and roadmap priorities, plus additional effort to certify and govern AI/agentic automation in regulated processes.</p>
+<p>Source: <a href="https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/">SAP</a> · developing</p>
+<h2>Deadline Radar</h2>
+<p>Dated SAP changes to plan around, soonest first.</p>
+<ul>
+<li><strong>31 Dec 2027</strong> · Mainstream maintenance ends for BW 7.5 · <em>SAP BW 7.5</em> · in ~13 months (<a href="https://www.riministreet.com/blog/sap-end-of-mainstream-maintenance-deadlines-are-looming-for-gts-bobj-bpc-bw-hybris/">source</a>)</li>
+<li><strong>31 Dec 2027</strong> · Mainstream maintenance ends for ECC 6.0 (EHP 6-8) · <em>SAP ECC 6.0 / Business Suite 7</em> · in ~13 months (<a href="https://www.dvwanalytics.com/blog/sap-ecc-end-of-support-a-practical-primer">source</a>)</li>
+<li><strong>31 Dec 2027</strong> · Mainstream maintenance ends for PI/PO 7.5 · <em>SAP Process Orchestration 7.5</em> · in ~13 months (<a href="https://leverx.com/en-gb/blog/sap-pi-po-to-integration-suite-migration-uk">source</a>)</li>
+<li><strong>31 Dec 2030</strong> · Optional extended maintenance ends (2-point premium) · <em>SAP ECC 6.0 / Business Suite 7</em> · in ~4 years (<a href="https://www.panorama-consulting.com/18-months-to-the-sap-ecc-cliff-and-half-of-customers-still-havent-moved/">source</a>)</li>
+<li><strong>31 Dec 2030</strong> · Optional extended maintenance ends for PI/PO 7.5 · <em>SAP Process Orchestration 7.5</em> · in ~4 years (<a href="https://leverx.com/en-gb/blog/sap-pi-po-to-integration-suite-migration-uk">source</a>)</li>
+<li><strong>31 Dec 2030</strong> · SAP ends third-party database resale/support and Java support for Business Suite 7 · <em>SAP Business Suite 7 on third-party databases</em> · in ~4 years (<a href="https://sapinsider.org/blogs/sap-sets-2030-cutoff-for-third-party-database-and-java-support/">source</a>)</li>
+<li><strong>Dec 2033</strong> · ERP private edition transition option ends (selected RISE customers) · <em>SAP ERP, private edition, transition option</em> · in ~7 years (<a href="https://sapinsider.org/blogs/what-erp-support-deadlines-actually-mean-for-companies/">source</a>)</li>
+</ul>
+<h2>Sources for the Take</h2>
+<ol>
+<li>WALLDORF — SAP SE (NYSE: SAP) today announced it has completed the acquisition of TechWolf, provider of a leading AI work intelligence platform. (<a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a>)</li>
+<li>TechWolf is expected to become an intelligent core of the SAP SuccessFactors portfolio, supporting the company’s talent and work intelligence strategy. (<a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a>)</li>
+<li>TechWolf’s proprietary context graph will become SAP’s grounding layer for agent queries regarding work and skills planning and talent management. (<a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a>)</li>
+<li>This will make token usage more efficient, lowering the cost of deploying workforce agents and supporting Joule intelligence in AI-driven HR scenarios. (<a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a>)</li>
+<li>This press release was created with the assistance of artificial intelligence and has been reviewed by the editorial team. (<a href="https://news.sap.com/2026/11/sap-completes-acquisition-of-techwolf/">SAP</a>)</li>
+</ol>
+<hr />
+<p><em>SAP Signal</em> is curated and signed off by Sachin. Public sources only.</p>
+<p><em>Views expressed are my own and do not represent my employer.</em></p>
+</body></html>

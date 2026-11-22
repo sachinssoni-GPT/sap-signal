@@ -1,0 +1,110 @@
+{
+  "candidate_id": "E1",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Rimini Street announced an expanded strategic partnership with American Digital to give SAP licensees a lower-risk path to cloud modernization.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "American Digital will serve as a solution partner for Rimini Cloud for SAP to help migrate SAP systems to modern cloud infrastructure.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "The offering lets customers move to modern cloud infrastructure without ERP reimplementation or converting perpetual licenses to subscriptions.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "This expansion builds on a strategic alliance established in 2025 combining Rimini Street and American Digital capabilities.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "quote": "Rimini Street, the Software Support and Agentic AI ERP Company™ and the leading third-party support provider for Oracle, SAP and VMware software, today announced an expanded strategic partnership with American Digital Corporation to give SAP licensees a lower-risk, more flexible path to cloud modernization.",
+      "origin": "portalerp.com",
+      "stance": "supports",
+      "source_tier": "unknown",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "retrieved_at": "2026-11-22T08:41:42+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "quote": "Through the expanded relationship, American Digital will serve as a solution partner for Rimini Cloud™ for SAP, helping SAP ECC and S/4HANA licensees move their existing SAP systems to modern cloud infrastructure",
+      "origin": "portalerp.com",
+      "stance": "supports",
+      "source_tier": "unknown",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "retrieved_at": "2026-11-22T08:41:42+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "quote": "without requiring ERP reimplementation or conversion of perpetual licenses to subscriptions, while maintaining greater control over their long-term roadmap.",
+      "origin": "portalerp.com",
+      "stance": "supports",
+      "source_tier": "unknown",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "retrieved_at": "2026-11-22T08:41:42+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "quote": "The announcement builds on a strategic alliance established in 2025 that brings together Rimini Street’s enterprise software support, managed services and ERP innovation expertise with American Digital’s infrastructure, cloud migration and managed services capabilities.",
+      "origin": "portalerp.com",
+      "stance": "supports",
+      "source_tier": "unknown",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://portalerp.com/noticia/rimini-street-and-american-digital-expand-sap-partnership",
+      "retrieved_at": "2026-11-22T08:41:42+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at portalerp.com; 4 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

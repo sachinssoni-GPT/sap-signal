@@ -1,0 +1,61 @@
+{
+  "verdict": "pass",
+  "checks": [
+    {
+      "name": "citations_reference_real_claims",
+      "passed": true,
+      "severity": "block",
+      "detail": "unknown claim ids: []"
+    },
+    {
+      "name": "cites_evidence",
+      "passed": true,
+      "severity": "block",
+      "detail": "the piece cites no verified claim"
+    },
+    {
+      "name": "no_banned_terms",
+      "passed": true,
+      "severity": "block",
+      "detail": "contains banned term(s): []"
+    },
+    {
+      "name": "word_count_in_range",
+      "passed": true,
+      "severity": "info",
+      "detail": "701 words (aim 400-650)"
+    },
+    {
+      "name": "has_sections",
+      "passed": true,
+      "severity": "info",
+      "detail": "3 sections"
+    },
+    {
+      "name": "headings_are_specific",
+      "passed": true,
+      "severity": "info",
+      "detail": "stock headings: []"
+    },
+    {
+      "name": "no_generic_phrases",
+      "passed": true,
+      "severity": "info",
+      "detail": "found: []"
+    },
+    {
+      "name": "no_dated_forecasts",
+      "passed": true,
+      "severity": "info",
+      "detail": "contains odds or 'check me on' language"
+    },
+    {
+      "name": "title_length",
+      "passed": true,
+      "severity": "info",
+      "detail": "7 words"
+    }
+  ],
+  "issues": [],
+  "feedback": ""
+}

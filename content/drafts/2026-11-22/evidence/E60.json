@@ -1,0 +1,133 @@
+{
+  "candidate_id": "E60",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Takeda is migrating from SAP ECC to SAP Cloud ERP via RISE with SAP as part of a broader digital transformation.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "Takeda is a large, global life‑sciences company (scale driving complexity and regulatory needs).",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "Takeda describes SAP as the core system running manufacturing, supply chain, finance, quality and more.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "Takeda and SAP are co‑developing agentic AI functionalities targeted at regulated industries.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C5",
+      "text": "Takeda’s priorities include completing the S/4HANA journey and using AI capabilities in SAP Cloud ERP.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "quote": "The biotech company’s move from SAP ERP Central Component (SAP ECC) to SAP Cloud ERP applications through the RISE with SAP journey is part of a broader effort to simplify how its business runs, make better use of data, and create more room for digital and AI-enabled ways of working.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "retrieved_at": "2026-11-22T08:41:52+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "quote": "Takeda has 250 years of history, 50,000 employees, global operations, and medicines reaching patients in more than 80 countries.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "retrieved_at": "2026-11-22T08:41:52+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "quote": "SAP is the core system that supports and operates nearly all of our processes around the globe, from manufacturing and supply chain to finance, quality, and beyond.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "retrieved_at": "2026-11-22T08:41:52+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "quote": "“Together, we are co-developing new agentic functionalities for regulated industries,” Straub said. “We believe these capabilities can scale across the industry, not just within Takeda.”",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "retrieved_at": "2026-11-22T08:41:52+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C5",
+      "url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "quote": "Looking ahead, Straub said the priorities are clear: bring the SAP S/4HANA journey to life, understand and use the AI capabilities in SAP Cloud ERP effectively, and continue building the partnership with SAP.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/takeda-turns-to-sap-erp-digital-transformation/",
+      "retrieved_at": "2026-11-22T08:41:52+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C5",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 5 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

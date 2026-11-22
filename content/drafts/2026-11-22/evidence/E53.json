@@ -1,0 +1,110 @@
+{
+  "candidate_id": "E53",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "SAP is making Joule Work more interoperable with Microsoft Work IQ to close the gap between where work happens and where business runs.",
+      "central": true,
+      "claim_type": "general"
+    },
+    {
+      "id": "C2",
+      "text": "SAP Business Data Cloud Connect for Microsoft Fabric provides bidirectional, zero-copy data integration to create a unified data foundation across SAP and Microsoft environments.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C3",
+      "text": "The agent gateway and open A2A protocol let agents built with Microsoft Copilot Studio delegate SAP work directly to Joule Agents with security and policies preserved.",
+      "central": false,
+      "claim_type": "general"
+    },
+    {
+      "id": "C4",
+      "text": "SAP AI Agent Hub gives administrators telemetry and lifecycle visibility across SAP, Microsoft, and third-party agents to observe, govern, and measure agent activity.",
+      "central": false,
+      "claim_type": "general"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "C1",
+      "url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "quote": "Joule Work even more interoperable by taking advantage of the latest capabilities in Microsoft Work IQ, announced at Microsoft Ignite.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "retrieved_at": "2026-11-22T08:42:04+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C2",
+      "url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "quote": "SAP Business Data Cloud Connect for Microsoft Fabric enables a unified data foundation across SAP and Microsoft environments through bidirectional, zero-copy data integration.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "retrieved_at": "2026-11-22T08:42:04+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C3",
+      "url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "quote": "With the release earlier this month of the agent gateway and the open A2A protocol, agents built with Microsoft Copilot Studio can delegate SAP-specific work directly to Joule Agents",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "retrieved_at": "2026-11-22T08:42:04+00:00",
+      "quote_verified": true
+    },
+    {
+      "claim_id": "C4",
+      "url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "quote": "SAP AI Agent Hub, part of SAP Business AI Platform, gives organizations telemetry and lifecycle visibility across SAP, Microsoft, and third-party agents as they multiply across environments.",
+      "origin": "sap.com",
+      "stance": "supports",
+      "source_tier": "primary",
+      "source_perspective": "unclassified",
+      "resolved_url": "https://news.sap.com/2026/11/how-sap-microsoft-innovate-deliver-ai-value-enterprise/",
+      "retrieved_at": "2026-11-22T08:42:04+00:00",
+      "quote_verified": true
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C1",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C2",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C3",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    },
+    {
+      "claim_id": "C4",
+      "verdict": "supported",
+      "notes": "quote found on the page read"
+    }
+  ],
+  "summary": "Read at sap.com; 4 claim(s) matched verbatim.",
+  "narrative_assessment": {
+    "source_perspectives": [],
+    "official_positions": [],
+    "competing_interpretations": [],
+    "independently_verified_facts": [],
+    "disputed_claims": [],
+    "propaganda_or_messaging_indicators": []
+  }
+}

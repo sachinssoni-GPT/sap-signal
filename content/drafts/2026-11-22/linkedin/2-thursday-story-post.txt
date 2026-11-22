@@ -1,0 +1,9 @@
+A design review was quiet for a while — an architect sketched a shared skills model while a PM counted interfaces and SLAs. The question on the table was simple: keep our in-house skills graph, or start routing agent queries to an external context core?
+
+I’ve seen this same pattern before: a new platform promise collapses multiple teams’ assumptions about ownership and change control into one place. The hard trade-off isn’t a technology choice; it’s an authority choice. Do you allow an external graph to be the source of truth for pay, promotions and compliance? If yes, you must earn the right contractually and operationally. If no, you must accept higher operational overhead to preserve local authority.
+
+[YOUR STORY: a time an integration broke at go-live because...]
+
+Practical takeaway: pilot TechWolf for a few narrow Joule scenarios, define deterministic vs probabilistic outcomes, and require schema-stability SLAs and export rights before any cutover for compliance-critical flows. Read the full Take in this week’s newsletter.
+
+This week's full Take is in the newsletter: https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7527322632673988608
